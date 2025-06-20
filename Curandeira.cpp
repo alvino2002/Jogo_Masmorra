@@ -115,8 +115,8 @@ void Curandeira::curarAliado()
 	if (pCavaleiro)
 	{
 		/*so consegue curar se estiverm proximos*/
-		if (fabs(pCavaleiro->getCorpo().getPosition().x - corpo.getPosition().x) < 2.0f
-			&& fabs(pCavaleiro->getCorpo().getPosition().y - corpo.getPosition().y) < 2.0f)
+		if (fabs(pCavaleiro->getCorpo().getPosition().x - corpo.getPosition().x) < 100.0f
+			&& fabs(pCavaleiro->getCorpo().getPosition().y - corpo.getPosition().y) < 100.0f)
 		{
 			vida -= 10; // Fornece sua propria energia vital
 			pCavaleiro->setVida(pCavaleiro->getVida() + 10);

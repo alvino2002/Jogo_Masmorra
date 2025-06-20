@@ -1,4 +1,5 @@
 #include "Cavaleiro.h"
+#include <iostream>
 
 
 using namespace Masmorra::Entidades::Personagens;
@@ -29,6 +30,8 @@ Cavaleiro::~Cavaleiro()
 
 void Cavaleiro::executar()
 {
+	std::cout << vida << std::endl;
+
 	velAtual.x = 0;
 	/*Movimento do cavaleiro*/
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -78,7 +81,7 @@ void Cavaleiro::executar()
 		recuperar();
 	}
 
-	if (vida == 0)
+	if (vida <= 0)
 	{
 		setVivo(false);
 	}

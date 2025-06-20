@@ -21,7 +21,6 @@ void ObservadorFim::notificarEvento(const std::string& evento)
 {
 	if (evento == "SAIR")
 	{
-		pGEs->limparPilha();
 		pMenu = new Estados::EstadoMenu();
 		pGEs->adicionarEstado(pMenu);
 	}
