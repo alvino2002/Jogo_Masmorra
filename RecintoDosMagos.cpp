@@ -806,21 +806,22 @@ void RecintoDosMagos::carregarFase()
 			numeroInimigos++;
 		}
 
-		/*if (tipo == "Caixa")
+		if (tipo == "Lava")
 		{
+			sf::Vector2f tamanho;
 			sf::Vector2f posicao;
 
-			linhaAtual >> posicao.x >> posicao.y; // Pegando as info
+			linhaAtual >> posicao.x >> posicao.y >> tamanho.x >> tamanho.y; // Pegando as info
 
-			Entidades::Obstaculos::Caixa* pC = new Entidades::Obstaculos::Caixa(1, sf::Vector2f(60.0f, 70.0f),
+			Entidades::Obstaculos::Lava* pL = new Entidades::Obstaculos::Lava(1, tamanho,
 				posicao);
 
-			pC->setVelocidadeX(0);
-			pC->setVelocidadeY(0);
+			pL->setVelocidadeX(0);
+			pL->setVelocidadeY(0);
 
-			pGC->incluirObstaculo(pC);
-			listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pC));
-		}*/
+			pGC->incluirObstaculo(pL);
+			listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pL));
+		}
 
 		if (tipo == "Plataforma")
 		{

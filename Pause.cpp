@@ -42,7 +42,7 @@ void Pause::inicializar()
 	opcoes.push_back("Pausado");
 	opcoes.push_back("Continuar (C)");
 	opcoes.push_back("");
-	opcoes.push_back("Salvar e Sair (ESC)");
+	opcoes.push_back("Salvar (ESC)");
 
 	textos.resize(4);
 
@@ -51,7 +51,7 @@ void Pause::inicializar()
 		{280.f, 80.f},    // Título
 		{275.f, 200.f},   // Botão 1
 		{300.f, 250.f},   // Botão 2 INEXISTENTE
-		{250.f, 290.f}    // Botão 3
+		{300.f, 290.f}    // Botão 3
 	};
 	tamanhos = { 60, 36, 36, 36 };
 

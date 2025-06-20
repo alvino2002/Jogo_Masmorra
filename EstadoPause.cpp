@@ -46,7 +46,7 @@ void EstadoPause::verificarEvento()
 	{
 		if (pObs)
 		{
-			pObs->notificarEvento("SALVAR E SAIR");
+			pObs->notificarEvento("SALVAR");
 		}
 	}
 }

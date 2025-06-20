@@ -4,7 +4,6 @@
 
 using namespace Masmorra::Fases;
 
-//teste
 
 Fase::Fase(int id, int qtdeJogadores, bool novoJogo) :
 	Ente(id),
