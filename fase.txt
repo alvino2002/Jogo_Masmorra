@@ -1,0 +1,32 @@
+Fase1
+Caixa 1630 30189.2
+Caixa 230 680.005
+Caixa 1190 790.005
+Caixa 1110 24378
+Caixa 280 24488
+Esqueleto 1090 24488 50 0 10 1 200
+Esqueleto 500 790 50 0 10 1 100
+Esqueleto 890 430.005 50 0 10 2 100
+Esqueleto 1450 24378 50 0 10 2 500
+Plataforma 1620 92100 100 20 0
+Plataforma 1560 340 100 20 0
+Plataforma 1620 92100 100 20 0
+Plataforma 750 650 100 20 0
+Plataforma 580 1010 150 20 0
+Plataforma 580 880 20 130 0
+Plataforma 760 860 600 20 0
+Plataforma 100 860 500 20 0
+Plataforma 1380 760 350 20 0
+Plataforma 180 750 1100 20 0
+Plataforma 80 750 20 130 0
+Plataforma 1280 650 20 40 0
+Plataforma 600 620 20 130 0
+Plataforma 1140 600 400 50 0
+Plataforma 400 600 300 20 0
+Plataforma 740 500 300 20 0
+Plataforma 1470 430 300 20 0
+Plataforma 50 430 300 20 0
+Plataforma 1160 310 300 20 0
+Plataforma 790 270 300 20 0
+Plataforma 380 250 300 20 0
+Cavaleiro 660.027 530.005 200 0 10 20 0

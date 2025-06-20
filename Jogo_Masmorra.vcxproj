@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Aranha.h" />
+    <ClInclude Include="Caixa.h" />
+    <ClInclude Include="Cavaleiro.h" />
+    <ClInclude Include="Curandeira.h" />
+    <ClInclude Include="Ente.h" />
+    <ClInclude Include="Entidade.h" />
+    <ClInclude Include="Esqueleto.h" />
+    <ClInclude Include="Estado.h" />
+    <ClInclude Include="EstadoFim.h" />
+    <ClInclude Include="EstadoMenu.h" />
+    <ClInclude Include="EstadoPause.h" />
+    <ClInclude Include="EstadoPrimeiraFase.h" />
+    <ClInclude Include="EstadoRanking.h" />
+    <ClInclude Include="EstadoSegundaFase.h" />
+    <ClInclude Include="EstadoSelecaoPrim.h" />
+    <ClInclude Include="EstadoSelecaoSeg.h" />
+    <ClInclude Include="Fase.h" />
+    <ClInclude Include="Fim.h" />
+    <ClInclude Include="Fogo.h" />
+    <ClInclude Include="GerenciadorAnimacao.h" />
+    <ClInclude Include="GerenciadorColisao.h" />
+    <ClInclude Include="GerenciadorEstado.h" />
+    <ClInclude Include="GerenciadorGrafico.h" />
+    <ClInclude Include="GerenciadorTempo.h" />
+    <ClInclude Include="Inimigo.h" />
+    <ClInclude Include="Interface.h" />
+    <ClInclude Include="Jogador.h" />
+    <ClInclude Include="Lava.h" />
+    <ClInclude Include="Lista.h" />
+    <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Mago.h" />
+    <ClInclude Include="MasmorraJogo.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Observador.h" />
+    <ClInclude Include="ObservadorFim.h" />
+    <ClInclude Include="ObservadorPause.h" />
+    <ClInclude Include="ObservadorMenu.h" />
+    <ClInclude Include="ObservadorPrimeiraFase.h" />
+    <ClInclude Include="ObservadorRanking.h" />
+    <ClInclude Include="ObservadorSegundaFase.h" />
+    <ClInclude Include="ObservadorSelecaoPrim.h" />
+    <ClInclude Include="ObservadorSelecaoSeg.h" />
+    <ClInclude Include="Obstaculo.h" />
+    <ClInclude Include="Pause.h" />
+    <ClInclude Include="Personagem.h" />
+    <ClInclude Include="Plataforma.h" />
+    <ClInclude Include="Ranking.h" />
+    <ClInclude Include="RecintoDosMagos.h" />
+    <ClInclude Include="SalvarJogada.h" />
+    <ClInclude Include="SelecaoPrimeira.h" />
+    <ClInclude Include="SelecaoSegunda.h" />
+    <ClInclude Include="ZonaDosEsqueletos.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Aranha.cpp" />
+    <ClCompile Include="Caixa.cpp" />
+    <ClCompile Include="Cavaleiro.cpp" />
+    <ClCompile Include="Curandeira.cpp" />
+    <ClCompile Include="Ente.cpp" />
+    <ClCompile Include="Entidade.cpp" />
+    <ClCompile Include="Esqueleto.cpp" />
+    <ClCompile Include="Estado.cpp" />
+    <ClCompile Include="EstadoFim.cpp" />
+    <ClCompile Include="EstadoMenu.cpp" />
+    <ClCompile Include="EstadoPause.cpp" />
+    <ClCompile Include="EstadoPrimeiraFase.cpp" />
+    <ClCompile Include="EstadoRanking.cpp" />
+    <ClCompile Include="EstadoSegundaFase.cpp" />
+    <ClCompile Include="EstadoSelecaoPrim.cpp" />
+    <ClCompile Include="EstadoSelecaoSeg.cpp" />
+    <ClCompile Include="Fase.cpp" />
+    <ClCompile Include="Fim.cpp" />
+    <ClCompile Include="Fogo.cpp" />
+    <ClCompile Include="GerenciadorAnimacao.cpp" />
+    <ClCompile Include="GerenciadorColisao.cpp" />
+    <ClCompile Include="GerenciadorEstado.cpp" />
+    <ClCompile Include="GerenciadorGrafico.cpp" />
+    <ClCompile Include="GerenciadorTempo.cpp" />
+    <ClCompile Include="Inimigo.cpp" />
+    <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="Jogador.cpp" />
+    <ClCompile Include="Lava.cpp" />
+    <ClCompile Include="ListaEntidades.cpp" />
+    <ClCompile Include="Mago.cpp" />
+    <ClCompile Include="MasmorraJogo.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Observador.cpp" />
+    <ClCompile Include="ObservadorFim.cpp" />
+    <ClCompile Include="ObservadorPause.cpp" />
+    <ClCompile Include="ObservadorMenu.cpp" />
+    <ClCompile Include="ObservadorPrimeiraFase.cpp" />
+    <ClCompile Include="ObservadorRanking.cpp" />
+    <ClCompile Include="ObservadorSegundaFase.cpp" />
+    <ClCompile Include="ObservadorSelecaoPrim.cpp" />
+    <ClCompile Include="ObservadorSelecaoSeg.cpp" />
+    <ClCompile Include="Obstaculo.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pause.cpp" />
+    <ClCompile Include="Personagem.cpp" />
+    <ClCompile Include="Plataforma.cpp" />
+    <ClCompile Include="Ranking.cpp" />
+    <ClCompile Include="RecintoDosMagos.cpp" />
+    <ClCompile Include="SalvarJogada.cpp" />
+    <ClCompile Include="SelecaoPrimeira.cpp" />
+    <ClCompile Include="SelecaoSegunda.cpp" />
+    <ClCompile Include="ZonaDosEsqueletos.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a240d20a-5bda-411d-a858-07fb9e52510e}</ProjectGuid>
+    <RootNamespace>JogoMasmorra</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\alvin\Desktop\SFML-2.5.1-windows-vc14-64-bit\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\alvin\Desktop\SFML-2.5.1-windows-vc14-64-bit\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
