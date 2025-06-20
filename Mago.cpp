@@ -1,5 +1,6 @@
 #include "Mago.h"
 
+/*Oi*/
 
 using namespace Masmorra::Entidades::Personagens;
 
