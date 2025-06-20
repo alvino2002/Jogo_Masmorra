@@ -33,7 +33,7 @@ void ObservadorPause::notificarEvento(const std::string& evento)
 		pGEs->removerTopo(); // Remover o topo
 	}
 
-	if (evento == "SALVAR E SAIR")
+	if (evento == "SALVAR")
 	{
 		pSalvar = new Masmorra::SalvarJogada();
 
@@ -48,9 +48,5 @@ void ObservadorPause::notificarEvento(const std::string& evento)
 		{
 			pSalvar->salvarFase(2);
 		}
-
-		pGEs->limparPilha();
-		pMenu = new Estados::EstadoMenu();
-		pGEs->adicionarEstado(pMenu);
 	}
 }
