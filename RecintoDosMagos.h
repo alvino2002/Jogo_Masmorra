@@ -1,7 +1,7 @@
 #pragma once
 #include "Fase.h"
 #include "time.h"
-#include "Aranha.h"
+#include "./headers/Aranha.h"
 #include "Lava.h"
 #include "Cavaleiro.h"
 #include "Curandeira.h"

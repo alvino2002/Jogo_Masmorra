@@ -1,4 +1,4 @@
-#include "Aranha.h"
+#include "./headers/Aranha.h"
 
 
 using namespace Masmorra::Entidades::Personagens;
