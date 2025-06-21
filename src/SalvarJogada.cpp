@@ -47,7 +47,7 @@ void SalvarJogada::setSegundaFase(Fases::RecintoDosMagos* pS)
 
 void SalvarJogada::executar()
 {
-	std::ifstream arquivo("fase.txt");
+	std::ifstream arquivo("txt/fase.txt");
 	std::string primeiraLinha;
 	std::getline(arquivo, primeiraLinha);
 

@@ -25,7 +25,7 @@ Esqueleto::Esqueleto(
 		batida = 2;
 	}
 	texturaEsqueleto = new sf::Texture();
-	texturaEsqueleto->loadFromFile("skull.sprite.png");
+	texturaEsqueleto->loadFromFile("texturas e fonte/skull.sprite.png");
 	corpo.setTexture(texturaEsqueleto);
 	pGA->pegarAnimacao(texturaEsqueleto, sf::Vector2u(3, 4));
 }

@@ -18,8 +18,8 @@ SelecaoSegunda::~SelecaoSegunda()
 void SelecaoSegunda::inicializar()
 {
 	/*Carregar fonte e textura*/
-	fonte->loadFromFile("Korcy.otf");
-	imagem->loadFromFile("selecao_Sprite.jpg");
+	fonte->loadFromFile("texturas e fonte/Korcy.otf");
+	imagem->loadFromFile("texturas e fonte/selecao_Sprite.jpg");
 
 	/*Aplicar textura ao fundo*/
 	fundo->setTexture(*imagem);

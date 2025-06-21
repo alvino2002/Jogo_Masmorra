@@ -17,7 +17,7 @@ Cavaleiro::Cavaleiro(int id, sf::Vector2f tamanho, sf::Vector2f posicao, sf::Vec
 	ataquePronto(true)
 {
 	texturaCavaleiro = new sf::Texture();
-	texturaCavaleiro->loadFromFile("knight_Sprite.png");
+	texturaCavaleiro->loadFromFile("texturas e fonte/knight_Sprite.png");
 	corpo.setTexture(texturaCavaleiro);
 	pGA->pegarAnimacao(texturaCavaleiro, sf::Vector2u(4, 4));
 }

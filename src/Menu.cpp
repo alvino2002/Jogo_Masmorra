@@ -17,8 +17,8 @@ Menu::~Menu()
 void Menu::inicializar()
 {
 	/*Carregar fonte e textura*/
-	fonte->loadFromFile("Korcy.otf");
-	imagem->loadFromFile("menuInicial_Sprite.png");
+	fonte->loadFromFile("texturas e fonte/Korcy.otf");
+	imagem->loadFromFile("texturas e fonte/menuInicial_Sprite.png");
 
 	/*Aplicar textura ao fundo*/
 	fundo->setTexture(*imagem);

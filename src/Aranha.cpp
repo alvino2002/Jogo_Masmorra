@@ -28,7 +28,7 @@ Aranha::Aranha(
 	}
 
 	texturaAranha = new sf::Texture();
-	texturaAranha->loadFromFile("spider_Sprite.png");
+	texturaAranha->loadFromFile("texturas e fonte/spider_Sprite.png");
 	corpo.setTexture(texturaAranha);
 	pGA->pegarAnimacao(texturaAranha, sf::Vector2u(3, 4));
 }

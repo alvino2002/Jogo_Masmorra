@@ -9,7 +9,7 @@ Caixa::Caixa(int id, sf::Vector2f tam, sf::Vector2f posicao) :
 	lentidao(0.5f)
 {
 	texturaCaixa = new sf::Texture();
-	texturaCaixa->loadFromFile("caixa_Sprite.png");
+	texturaCaixa->loadFromFile("texturas e fonte/caixa_Sprite.png");
 	corpo.setTexture(texturaCaixa);
 	pGA->pegarAnimacao(texturaCaixa, sf::Vector2u(4, 4));
 }

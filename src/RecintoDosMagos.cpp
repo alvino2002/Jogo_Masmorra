@@ -684,7 +684,7 @@ void RecintoDosMagos::escreverNome()
 
 void RecintoDosMagos::salvarFase()
 {
-	std::ofstream arquivo("fase.txt");
+	std::ofstream arquivo("txt/fase.txt");
 	arquivo << "Fase2" << '\n';
 
 	for (int i = listaEntidades.getTam() - 1; i >= 0; i--)
@@ -703,7 +703,7 @@ void RecintoDosMagos::carregarFase()
 {
 	numeroInimigos = 0;
 
-	std::ifstream arquivo("fase.txt");
+	std::ifstream arquivo("txt/fase.txt");
 
 	std::string linha;
 

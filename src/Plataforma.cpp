@@ -12,7 +12,7 @@ Plataforma::Plataforma(int id, sf::Vector2f tam, sf::Vector2f posicao, bool arm)
 	texturaPlataforma->loadFromFile("plataforma_Sprite.png");
 	corpo.setTexture(texturaPlataforma);
 	pGA->pegarAnimacao(texturaPlataforma, sf::Vector2u(4, 4));*/
-	corpo.setFillColor(sf::Color(105, 105, 105));
+	corpo.setFillColor(sf::Color(105, 105, 105)); // cinza
 }
 
 Plataforma::~Plataforma()

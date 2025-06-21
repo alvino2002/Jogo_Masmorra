@@ -15,7 +15,7 @@ Curandeira::Curandeira(int id, sf::Vector2f tamanho, sf::Vector2f posicao, sf::V
 	tempoAcumulado()
 {
 	texturaCurandeira = new sf::Texture();
-	texturaCurandeira->loadFromFile("healer_Sprite.png");
+	texturaCurandeira->loadFromFile("texturas e fonte/healer_Sprite.png");
 	corpo.setTexture(texturaCurandeira);
 	pGA->pegarAnimacao(texturaCurandeira, sf::Vector2u(3, 4));
 }

@@ -10,7 +10,7 @@ Fogo::Fogo(int id, sf::Vector2f tam, sf::Vector2f posicao, sf::Vector2f vel, boo
 	sentido(direita)
 {
 	texturaFogo = new sf::Texture();
-	texturaFogo->loadFromFile("fireball_Sprite.png");
+	texturaFogo->loadFromFile("texturas e fonte/fireball_Sprite.png");
 	corpo.setTexture(texturaFogo);
 	pGA->pegarAnimacao(texturaFogo, sf::Vector2u(1, 1));
 }

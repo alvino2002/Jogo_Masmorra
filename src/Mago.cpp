@@ -31,9 +31,9 @@ Mago::Mago(int id,
 	}
 
 	texturaMago = new sf::Texture();
-	texturaMago->loadFromFile("mago_Sprite.png");
+	texturaMago->loadFromFile("texturas e fonte/mago_roxo.png");
 	corpo.setTexture(texturaMago);
-	pGA->pegarAnimacao(texturaMago, sf::Vector2u(1, 2));
+	pGA->pegarAnimacao(texturaMago, sf::Vector2u(1, 1));
 }
 
 Mago::~Mago()

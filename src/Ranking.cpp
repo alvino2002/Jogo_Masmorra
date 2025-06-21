@@ -18,7 +18,7 @@ Ranking::Ranking(int id) :
 
 void Ranking::salvar(int pontuacao, const std::string& nome)
 {
-    std::ofstream arquivo("ranking.txt", std::ios::app); // abre no modo append
+    std::ofstream arquivo("txt/ranking.txt", std::ios::app); // abre no modo append
     if (arquivo.is_open())
     {
         arquivo << nome << " " << pontuacao << std::endl;
@@ -34,8 +34,8 @@ Ranking::~Ranking()
 void Ranking::inicializar()
 {
     /*Carregar fonte e textura*/
-    fonte->loadFromFile("Korcy.otf");
-    imagem->loadFromFile("fundo_preto.jpg");
+    fonte->loadFromFile("texturas e fonte/Korcy.otf");
+    imagem->loadFromFile("texturas e fonte/fundo_preto.jpg");
 
     /*Aplicar textura ao fundo*/
     fundo->setTexture(*imagem);
@@ -92,7 +92,7 @@ void Ranking::executar()
 
 void Ranking::carregarRanking()
 {
-    std::ifstream arquivoEntrada("ranking.txt");
+    std::ifstream arquivoEntrada("txt/ranking.txt");
     ranking.clear();
 
     while (arquivoEntrada >> nome >> pontuacao)

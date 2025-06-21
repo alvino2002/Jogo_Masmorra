@@ -523,7 +523,7 @@ void ZonaDosEsqueletos::criarInimigos()
 
 void ZonaDosEsqueletos::salvarFase()
 {
-	std::ofstream arquivo("fase.txt");
+	std::ofstream arquivo("txt/fase.txt");
 	arquivo << "Fase1" << '\n';
 
 	for (int i = listaEntidades.getTam() - 1; i >= 0; i--)
@@ -542,7 +542,7 @@ void ZonaDosEsqueletos::carregarFase()
 {
 	numeroInimigos = 0;
 
-	std::ifstream arquivo("fase.txt");
+	std::ifstream arquivo("txt/fase.txt");
 
 	std::string linha;
 
