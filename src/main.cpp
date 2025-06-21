@@ -1,4 +1,4 @@
-#include "../headers/MasmorraJogo.h"
+#include "MasmorraJogo.h"
 
 
 int main()
