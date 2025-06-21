@@ -26,11 +26,13 @@ Aranha::Aranha(
 		mordida = 3;
 		veneno = 2;
 	}
-
+	
 	texturaAranha = new sf::Texture();
 	texturaAranha->loadFromFile("spider_Sprite.png");
 	corpo.setTexture(texturaAranha);
 	pGA->pegarAnimacao(texturaAranha, sf::Vector2u(3, 4));
+	
+	///corpo.setFillColor(sf::Color::Magenta);
 }
 
 Aranha::~Aranha()

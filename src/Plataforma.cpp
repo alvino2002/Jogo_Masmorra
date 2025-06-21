@@ -8,10 +8,16 @@ Plataforma::Plataforma(int id, sf::Vector2f tam, sf::Vector2f posicao, bool arm)
 	Obstaculo(id, tam, posicao),
 	armadilha(arm)
 {
-	/*texturaPlataforma = new sf::Texture();
-	texturaPlataforma->loadFromFile("plataforma_Sprite.png");
+	/*
+	texturaPlataforma = new sf::Texture();
+	texturaPlataforma->loadFromFile("texturas.jpeg");
+	texturaPlataforma->setRepeated(true);
 	corpo.setTexture(texturaPlataforma);
-	pGA->pegarAnimacao(texturaPlataforma, sf::Vector2u(4, 4));*/
+	corpo.setTextureRect(sf::IntRect(0, 0, corpo.getSize().x, corpo.getSize().y));
+	corpo.setPosition(posicao);
+	pGA->pegarAnimacao(texturaPlataforma, sf::Vector2u(1, 1));
+	*/
+	
 	corpo.setFillColor(sf::Color(105, 105, 105));
 }
 
