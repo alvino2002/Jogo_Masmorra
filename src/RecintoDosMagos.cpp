@@ -147,6 +147,7 @@ void RecintoDosMagos::criarPlataformas()
 	int numeroPlataformas = rand() % 3 + 28; // 28 a 30
 
 	//P01
+	
 	Entidades::Obstaculos::Plataforma* pP1 = new Entidades::Obstaculos::Plataforma(
 		1,
 		sf::Vector2f(500.f, 1500.f),
@@ -155,8 +156,10 @@ void RecintoDosMagos::criarPlataformas()
 	);
 	pGC->incluirObstaculo(pP1);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP1));
+	
 
 	//P02
+	
 	Entidades::Obstaculos::Plataforma* pP2 = new Entidades::Obstaculos::Plataforma(
 		1,
 		sf::Vector2f(500.f, 400.f),
@@ -165,8 +168,10 @@ void RecintoDosMagos::criarPlataformas()
 	);
 	pGC->incluirObstaculo(pP2);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP2));
+	
 
 	//P03
+	
 	Entidades::Obstaculos::Plataforma* pP3 = new Entidades::Obstaculos::Plataforma(
 		1,
 		sf::Vector2f(500.f, 1500.f),
@@ -175,12 +180,13 @@ void RecintoDosMagos::criarPlataformas()
 	);
 	pGC->incluirObstaculo(pP3);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP3));
+	
 
 	//P04
 	Entidades::Obstaculos::Plataforma* pP4 = new Entidades::Obstaculos::Plataforma(
 		1,
 		sf::Vector2f(250.f, 20.f),
-		sf::Vector2f(1200.f, 250.f),
+		sf::Vector2f(1200.f, 220.f),
 		false
 	);
 	pGC->incluirObstaculo(pP4);
@@ -199,7 +205,7 @@ void RecintoDosMagos::criarPlataformas()
 	//P06
 	Entidades::Obstaculos::Plataforma* pP6 = new Entidades::Obstaculos::Plataforma(
 		1,
-		sf::Vector2f(250.f, 20.f),
+		sf::Vector2f(290.f, 20.f),
 		sf::Vector2f(710.f, 370.f),
 		false
 	);
@@ -320,7 +326,7 @@ void RecintoDosMagos::criarPlataformas()
 	Entidades::Obstaculos::Plataforma* pP18 = new Entidades::Obstaculos::Plataforma(
 		1,
 		sf::Vector2f(900.f, 20.f),
-		sf::Vector2f(500.f, 1000.f),
+		sf::Vector2f(500.f, 1010.f),
 		false
 	);
 	pGC->incluirObstaculo(pP18);
@@ -464,7 +470,7 @@ void RecintoDosMagos::criarMagos()
 	(
 		1,
 		sf::Vector2f(40.f, 70.f),
-		sf::Vector2f(500.f, 900.f),
+		sf::Vector2f(520.f, 920.f),
 		sf::Vector2f(50.f, 0.f),
 		10, 1
 	);
@@ -476,7 +482,7 @@ void RecintoDosMagos::criarMagos()
 	(
 		1,
 		sf::Vector2f(40.f, 70.f),
-		sf::Vector2f(500.f, 1050.f),
+		sf::Vector2f(510.f, 1060.f),
 		sf::Vector2f(50.f, 0.f),
 		10, 1
 	);
@@ -489,7 +495,7 @@ void RecintoDosMagos::criarMagos()
 	(
 		1,
 		sf::Vector2f(40.f, 70.f),
-		sf::Vector2f(1330.f, 1230.f),
+		sf::Vector2f(1330.f, 1240.f),
 		sf::Vector2f(50.f, 0.f),
 		10, 2
 	);
@@ -503,7 +509,7 @@ void RecintoDosMagos::criarMagos()
 		(
 			1,
 			sf::Vector2f(40.f, 70.f),
-			sf::Vector2f(1560.f, 900.f),
+			sf::Vector2f(1560.f, 910.f),
 			sf::Vector2f(50.f, 0.f),
 			10,1
 		);
@@ -583,9 +589,9 @@ void RecintoDosMagos::executar()
 		setVenceu(true);
 	}
 
-	setarCamera();
-
 	pGG->limparJanela();
+	setarCamera();
+	//desenharFundo();
 	pGT->reiniciar();
 	pGC->executar();
 

@@ -8,12 +8,10 @@ Lava::Lava(int id, sf::Vector2f tam, sf::Vector2f posicao) :
 	Obstaculo(id, tam, posicao),
 	dano(2)
 {
-	/*texturaLava = new sf::Texture();
+	texturaLava = new sf::Texture();
 	texturaLava->loadFromFile("lava_Sprite.jpg");
 	corpo.setTexture(texturaLava);
-	pGA->pegarAnimacao(texturaLava, sf::Vector2u(1, 1));*/
-
-	corpo.setFillColor(sf::Color::Red);
+	pGA->pegarAnimacao(texturaLava, sf::Vector2u(1, 1));
 }
 
 Lava::~Lava()
