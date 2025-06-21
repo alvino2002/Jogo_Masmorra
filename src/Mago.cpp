@@ -29,11 +29,13 @@ Mago::Mago(int id,
 		olhandoDireita = false;
 		recargaLancamento = 2.0f;
 	}
-
+	
 	texturaMago = new sf::Texture();
-	texturaMago->loadFromFile("mago_Sprite.png");
+	texturaMago->loadFromFile("mago_roxo.png");
 	corpo.setTexture(texturaMago);
-	pGA->pegarAnimacao(texturaMago, sf::Vector2u(1, 2));
+	pGA->pegarAnimacao(texturaMago, sf::Vector2u(1, 1));
+	
+	//corpo.setFillColor(sf::Color::Cyan);
 }
 
 Mago::~Mago()
@@ -57,11 +59,11 @@ void Mago::executar()
 
 	if (nivelDeMaldade == 1)
 	{
-		pGA->atualizar(1, true);
+		pGA->atualizar(0, true);
 	}
 	else
 	{
-		pGA->atualizar(1, false); // Mago olhando para esquerda
+		pGA->atualizar(0, false); // Mago olhando para esquerda
 	}
 
 	if (tempoLancamento.getElapsedTime().asSeconds() + tempoAcumulado >= recargaLancamento)

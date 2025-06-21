@@ -22,7 +22,7 @@ Fase::Fase(int id, int qtdeJogadores, bool novoJogo) :
 
 	imagem_cenario = new sf::Texture();
 	fundo_cenario = new sf::Sprite();
-	imagem_cenario->loadFromFile("fundo_Caverna.png");
+	imagem_cenario->loadFromFile("fundo_preto.jpg");
 	fundo_cenario->setTexture(*imagem_cenario);
 
 	if (novoJogo)
@@ -151,7 +151,8 @@ void Fase::setarCamera()
 
 void Fase::desenharFundo()
 {
-	sf::RenderWindow* janela = pGG->getJanela();
+	//sf::RenderWindow* janela = pGG->getJanela();
+	auto janela = pGG->getJanela();
 	sf::Vector2f TopoEsquerda = camera.getCenter() - camera.getSize() * 0.7f;
 	fundo_cenario->setPosition(TopoEsquerda);
 	janela->draw(*fundo_cenario);
