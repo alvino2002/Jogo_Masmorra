@@ -389,26 +389,26 @@ void ZonaDosEsqueletos::criarPlataformas()
 	if (numeroPlataformas > 0)
 	{
 		//P21
-		Entidades::Obstaculos::Plataforma* pP20 = new Entidades::Obstaculos::Plataforma(
+		Entidades::Obstaculos::Plataforma* pP21 = new Entidades::Obstaculos::Plataforma(
 			1,
 			sf::Vector2f(20.f, 100.f),
 			sf::Vector2f(1520.f, 650.f),
 			false
 		);
-		pGC->incluirObstaculo(pP19);
-		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP19));
+		pGC->incluirObstaculo(pP21);
+		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP21));
 	}
 	if (numeroPlataformas > 1)
 	{
 		//P22
-		Entidades::Obstaculos::Plataforma* pP21 = new Entidades::Obstaculos::Plataforma(
+		Entidades::Obstaculos::Plataforma* pP22 = new Entidades::Obstaculos::Plataforma(
 			1,
 			sf::Vector2f(100.f, 20.f),
 			sf::Vector2f(340.f, 490.f),
 			false
 		);
-		pGC->incluirObstaculo(pP19);
-		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP19));
+		pGC->incluirObstaculo(pP22);
+		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP22));
 	}
 }
 
