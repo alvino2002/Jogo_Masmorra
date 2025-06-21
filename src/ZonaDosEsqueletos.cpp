@@ -466,7 +466,7 @@ bool ZonaDosEsqueletos::getAvance()const
 void ZonaDosEsqueletos::executar()
 {
 	/*Jogador principal morreu*/
-	if (pCav->getVida() == 0)
+	if (pCav->getVida() <= 0 || pCav->getPosicaoY() > 1300)
 	{
 		setFimDaFase(true);
 	}
