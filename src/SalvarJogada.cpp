@@ -12,6 +12,7 @@ SalvarJogada::SalvarJogada()
 
 SalvarJogada::~SalvarJogada()
 {
+	pGEs = nullptr;
 }
 
 void SalvarJogada::salvarFase(int fase)
@@ -53,14 +54,12 @@ void SalvarJogada::executar()
 	if (primeiraLinha == "Fase1")
 	{
 		Estados::EstadoPrimeiraFase* pPrim = new Estados::EstadoPrimeiraFase(2, false); // Nao eh mais novo jogo;
-		//pGEs->limparPilha();
 		pGEs->adicionarEstado(pPrim);
 	}
 
 	else
 	{
 		Estados::EstadoSegundaFase* pSeg = new Estados::EstadoSegundaFase(2, false); // Nao eh mais novo jogo;
-		//pGEs->limparPilha();
 		pGEs->adicionarEstado(pSeg);
 	}
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "Ente.h"
 
+/* A construção dessa classe e de suas derivadas tiveram auxílio da ferramenta de inteligência artificial ChatGPT */
 
 namespace Masmorra
 {

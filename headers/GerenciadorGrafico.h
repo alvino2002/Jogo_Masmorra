@@ -4,7 +4,8 @@
 #include "Entidade.h"
 #include "Interface.h"
 
-
+/* Referencia utilizada: Ex-Monitor de Tecnicas De Programacao Giovane Limas Salvi */
+/* Canal: https://www.youtube.com/@gege171/featured */
 
 namespace Masmorra
 {

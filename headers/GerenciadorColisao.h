@@ -6,6 +6,9 @@
 #include "GerenciadorTempo.h"
 #include "Plataforma.h"
 
+/* Referencia utilizada: Ex-Monitor de Tecnicas De Programacao Giovane Limas Salvi */
+/* Canal: https://www.youtube.com/@gege171/featured */
+
 namespace Masmorra
 {
 	namespace Gerenciadores

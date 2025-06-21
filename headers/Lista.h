@@ -1,5 +1,8 @@
 #pragma once
-#include <iostream>
+
+/* Referencia utilizada: Ex-Monitor de Tecnicas De Programacao Matheus Burda */
+/* Canal: https://www.youtube.com/channel/UCrNDrGwDXmBErjp0BGqqOUw/featured */
+
 
 namespace Masmorra
 {

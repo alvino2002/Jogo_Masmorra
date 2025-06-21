@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "GerenciadorTempo.h"
 
+/* A construção dessa classe teve auxílio da ferramenta de inteligência artificial ChatGPT */
+
 namespace Masmorra
 {
 	namespace Gerenciadores

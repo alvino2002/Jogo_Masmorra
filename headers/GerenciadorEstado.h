@@ -2,6 +2,8 @@
 #include <stack>
 #include "Estado.h"
 
+/* Esta classe, em conjunto com a classe Estado, definem o estado atual do jogo */
+
 namespace Masmorra
 {
 	namespace Gerenciadores

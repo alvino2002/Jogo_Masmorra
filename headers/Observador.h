@@ -2,6 +2,7 @@
 #include <string>
 #include "GerenciadorEstado.h"
 
+/* Classe voltada ao padrão de projeto Observer, baseada em um sistema de notificações */
 
 namespace Masmorra
 {

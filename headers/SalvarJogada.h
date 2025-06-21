@@ -3,6 +3,7 @@
 #include "EstadoPrimeiraFase.h"
 #include "EstadoSegundaFase.h"
 
+/* A utilização e construção de buffers nessa classe e em outros locais foi auxiliada pela IA ChatGPT*/
 
 namespace Masmorra
 {

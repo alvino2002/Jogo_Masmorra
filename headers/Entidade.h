@@ -3,6 +3,10 @@
 #include <sstream>
 #include "GerenciadorAnimacao.h"
 
+/* Classe construida majoritariamente por recursos da biblioteca grafica SFML */
+/* Referencia utilizada: Ex-Monitor de Tecnicas De Programacao Giovane Limas Salvi */
+/* Canal: https://www.youtube.com/@gege171/featured */
+
 
 namespace Masmorra
 {
