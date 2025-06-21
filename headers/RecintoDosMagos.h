@@ -7,7 +7,6 @@
 #include "Curandeira.h"
 #include "Mago.h"
 
-/*Oi*/
 
 namespace Masmorra
 {
@@ -34,8 +33,8 @@ namespace Masmorra
 			void criarInimigos();
 			void criarObstaculos();
 			void criarAranhas();
-			void criarMagos();
-			void criarLavas();
+			void criarMagos(); // Inimigo exclusivo da fase
+			void criarLavas(); // Obstaculo exclusivo da fase
 			void executar();
 			int getPontuacao();
 			void setVenceu(bool v);

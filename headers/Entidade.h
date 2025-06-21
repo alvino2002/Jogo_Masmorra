@@ -40,7 +40,7 @@ namespace Masmorra
 			bool getAtivo()const;
 			float getPosicaoX()const;
 			float getPosicaoY()const;
-			virtual void salvarDataBuffer() = 0;
+			virtual void salvarDataBuffer() = 0; // Representa o "salvar" proposto no diagrama UML
 			std::string getBuffer();
 		};
 	}

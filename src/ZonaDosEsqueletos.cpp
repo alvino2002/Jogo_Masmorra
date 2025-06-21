@@ -110,7 +110,7 @@ void ZonaDosEsqueletos::criarAranhas()
 {
 	numeroAranhas = rand() % 3 + 3; // 3 a 5
 
-	//ARANHA 01
+	//Aranha 01
 	Entidades::Personagens::Aranha* pA = new Entidades::Personagens::Aranha
 	(
 		1,
@@ -123,7 +123,7 @@ void ZonaDosEsqueletos::criarAranhas()
 	pGC->incluirInimigo(pA);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pA));
 
-	//ARANHA 02
+	//Aranha 02
 	Entidades::Personagens::Aranha* pA2 = new Entidades::Personagens::Aranha
 	(
 		1,
@@ -136,7 +136,7 @@ void ZonaDosEsqueletos::criarAranhas()
 	pGC->incluirInimigo(pA2);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pA2));
 
-	//ARANHA 03
+	//Aranha 03
 	Entidades::Personagens::Aranha* pA3 = new Entidades::Personagens::Aranha
 	(
 		1,
@@ -151,7 +151,7 @@ void ZonaDosEsqueletos::criarAranhas()
 
 	if (numeroAranhas > 3)
 	{
-		//ARANHA 4
+		//Aranha 4
 		Entidades::Personagens::Aranha* pA4 = new Entidades::Personagens::Aranha
 		(
 			1,
@@ -167,7 +167,7 @@ void ZonaDosEsqueletos::criarAranhas()
 
 	if (numeroAranhas > 4)
 	{
-		//ARANHA 5
+		//Aranha 5
 		Entidades::Personagens::Aranha* pA5 = new Entidades::Personagens::Aranha
 		(
 			1,

@@ -31,9 +31,9 @@ namespace Masmorra
 			void criarPlataformas();
 			void criarInimigos();
 			void criarObstaculos();
-			void criarCaixas();
+			void criarCaixas();  // Obstaculo exclusivo da fase
 			void criarAranhas();
-			void criarEsqueletos();
+			void criarEsqueletos(); // Inimigo exclusivo da fase
 			void executar();
 			void salvarFase();
 			void carregarFase();

@@ -28,11 +28,15 @@ namespace Masmorra
 		public:
 			Fase(int id, int qtdeJogadores, bool novoJogo);
 			~Fase();
+
+		protected:
 			virtual void criarCenario() = 0;
 			virtual void criarInimigos() = 0;
 			virtual void criarObstaculos() = 0;
-			virtual void criarAranhas() = 0; // Ambas as fases vao ter aranhas, inimigo em comum
+			virtual void criarAranhas() = 0; // Ambas as fases vao ter Aranhas, inimigo em comum
 			virtual void criarPlataformas() = 0; // Ambas as fases vao ter plataformas
+
+		public:
 			virtual void executar() = 0;
 			void setFimDaFase(bool fim); // Fase acaba quando todos os inimigos forem derrotados
 			bool getFimDaFase()const;

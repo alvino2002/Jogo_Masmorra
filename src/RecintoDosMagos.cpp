@@ -23,7 +23,6 @@ RecintoDosMagos::RecintoDosMagos(int id, int qtdeJogadores, bool novoJogo) :
 
 		camera.setSize(sf::Vector2f(800.f, 600.f));
 		criarCenario();
-		criarAranhas();
 		criarInimigos();
 		criarObstaculos();
 
