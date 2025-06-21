@@ -7,6 +7,7 @@
 #include "Curandeira.h"
 #include "Mago.h"
 
+/*Oi*/
 
 namespace Masmorra
 {
