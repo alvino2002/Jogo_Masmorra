@@ -1,5 +1,4 @@
 #include "../headers/Esqueleto.h"
-//#include "Fase.h"
 
 
 using namespace Masmorra::Entidades::Personagens;
