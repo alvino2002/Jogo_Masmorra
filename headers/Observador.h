@@ -15,7 +15,7 @@ namespace Masmorra
 
 		public:
 			Observador();
-			~Observador();
+			virtual ~Observador();
 			virtual void notificarEvento(const std::string& evento) = 0;
 		};
 	}

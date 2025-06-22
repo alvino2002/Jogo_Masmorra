@@ -13,6 +13,7 @@ namespace Masmorra
 			{
 			private:
 				int dano;
+				sf::Texture* texturaLava;
 
 			public:
 				Lava(

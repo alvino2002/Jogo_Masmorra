@@ -1,5 +1,6 @@
 #include "../headers/SalvarJogada.h"
 #include <fstream>
+#include <iostream>
 
 
 using namespace Masmorra;
@@ -47,20 +48,27 @@ void SalvarJogada::setSegundaFase(Fases::RecintoDosMagos* pS)
 
 void SalvarJogada::executar()
 {
-	std::ifstream arquivo("txt/fase.txt");
-	std::string primeiraLinha;
-	std::getline(arquivo, primeiraLinha);
-
-	if (primeiraLinha == "Fase1")
+	try
 	{
-		Estados::EstadoPrimeiraFase* pPrim = new Estados::EstadoPrimeiraFase(2, false); // Nao eh mais novo jogo;
-		pGEs->adicionarEstado(pPrim);
+		std::ifstream arquivo("txt/fase.txt");
+		std::string primeiraLinha;
+		std::getline(arquivo, primeiraLinha);
+
+		if (primeiraLinha == "Fase1")
+		{
+			Estados::EstadoPrimeiraFase* pPrim = new Estados::EstadoPrimeiraFase(2, false); // Nao eh mais novo jogo;
+			pGEs->adicionarEstado(pPrim);
+		}
+
+		else
+		{
+			Estados::EstadoSegundaFase* pSeg = new Estados::EstadoSegundaFase(2, false); // Nao eh mais novo jogo;
+			pGEs->adicionarEstado(pSeg);
+		}
 	}
-
-	else
+	catch (...)
 	{
-		Estados::EstadoSegundaFase* pSeg = new Estados::EstadoSegundaFase(2, false); // Nao eh mais novo jogo;
-		pGEs->adicionarEstado(pSeg);
+		std::cout << "Erro na leitura" << std::endl;
 	}
 
 }

@@ -1,4 +1,5 @@
 #include "../headers/Curandeira.h"
+#include <iostream>
 
 
 using namespace Masmorra::Entidades::Personagens;
@@ -38,6 +39,8 @@ void Curandeira::setCavaleiro(Cavaleiro* pCa)
 
 void Curandeira::executar()
 {
+	std::cout << "vida da curandeira: " << vida << std::endl;
+
 	velAtual.x = 0.0f;
 
 	/*Movimento da curandeira*/
@@ -108,7 +111,7 @@ void Curandeira::executar()
 
 void Curandeira::curar() // Curar a si mesma
 {
-	vida += 5;
+	vida += 10;
 }
 
 void Curandeira::curarAliado()

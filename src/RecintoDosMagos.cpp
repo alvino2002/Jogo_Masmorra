@@ -1,6 +1,7 @@
 #include "../headers/RecintoDosMagos.h"
 #include "../headers/Ranking.h"
 #include <fstream>
+#include <iostream>
 
 
 using namespace Masmorra::Fases;
@@ -78,7 +79,7 @@ void RecintoDosMagos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1250.f, 280.f),
 		sf::Vector2f(50.f, 0.f),
-		40, 2,
+		20, 2,
 		300.f
 	);
 	pGC->incluirInimigo(pA1);
@@ -91,7 +92,7 @@ void RecintoDosMagos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1420.f, 500.f),
 		sf::Vector2f(50.f, 0.f),
-		35, 2,
+		15, 2,
 		300.f
 	);
 	pGC->incluirInimigo(pA2);
@@ -104,7 +105,7 @@ void RecintoDosMagos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1260.f, 950.f),
 		sf::Vector2f(50.f, 0.f),
-		40, 1,
+		10, 1,
 		400.f
 	);
 	pGC->incluirInimigo(pA3);
@@ -119,7 +120,7 @@ void RecintoDosMagos::criarAranhas()
 			sf::Vector2f(50.f, 70.f),
 			sf::Vector2f(850.f, 450.f),
 			sf::Vector2f(50.f, 0.f),
-			30, 2,
+			10, 2,
 			450.f
 		);
 		pGC->incluirInimigo(pA4);
@@ -134,7 +135,7 @@ void RecintoDosMagos::criarAranhas()
 				sf::Vector2f(50.f, 70.f),
 				sf::Vector2f(970.f, 1100.f),
 				sf::Vector2f(50.f, 0.f),
-				50, 2,
+				20, 2,
 				350.f
 			);
 			pGC->incluirInimigo(pA5);
@@ -480,7 +481,7 @@ void RecintoDosMagos::criarMagos()
 		sf::Vector2f(40.f, 70.f),
 		sf::Vector2f(570.f, 920.f),
 		sf::Vector2f(50.f, 0.f),
-		35, 1
+		65, 1
 	);
 	pGC->incluirInimigo(pM1);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pM1));
@@ -505,7 +506,7 @@ void RecintoDosMagos::criarMagos()
 		sf::Vector2f(40.f, 70.f),
 		sf::Vector2f(1330.f, 1240.f),
 		sf::Vector2f(50.f, 0.f),
-		60, 2
+		80, 2
 	);
 	pGC->incluirInimigo(pM3);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pM3));
@@ -696,160 +697,174 @@ void RecintoDosMagos::escreverNome()
 
 void RecintoDosMagos::salvarFase()
 {
-	std::ofstream arquivo("txt/fase.txt");
-	arquivo << "Fase2" << '\n';
-
-	for (int i = listaEntidades.getTam() - 1; i >= 0; i--)
+	try
 	{
-		Entidades::Entidade* pE = listaEntidades.getEntidade(i);
+		std::ofstream arquivo("txt/fase.txt");
+		arquivo << "Fase2" << '\n';
 
-		if (pE->getAtivo() == true)
+		for (int i = listaEntidades.getTam() - 1; i >= 0; i--)
 		{
-			arquivo << pE->getBuffer();
+			Entidades::Entidade* pE = listaEntidades.getEntidade(i);
+
+			if (pE->getAtivo() == true)
+			{
+				arquivo << pE->getBuffer();
+			}
 		}
+		arquivo.close();
 	}
-	arquivo.close();
+	catch (...)
+	{
+		std::cout << "Erro ao salvar a fase" << std::endl;
+	}
 }
 
 void RecintoDosMagos::carregarFase()
 {
 	numeroInimigos = 0;
 
-	std::ifstream arquivo("txt/fase.txt");
-
-	std::string linha;
-
-	std::getline(arquivo, linha); // Descarta a primeira linha ja que ela representa apenas o numero da fase
-
-	while (std::getline(arquivo, linha)) // Lendo linha por linha
+	try
 	{
-		pGT->reiniciar();
+		std::ifstream arquivo("txt/fase.txt");
 
-		std::istringstream linhaAtual(linha);
-		std::string tipo;
-		linhaAtual >> tipo;
+		std::string linha;
 
-		if (tipo == "Cavaleiro")
+		std::getline(arquivo, linha); // Descarta a primeira linha ja que ela representa apenas o numero da fase
+
+		while (std::getline(arquivo, linha)) // Lendo linha por linha
 		{
-			sf::Vector2f posicao;
-			sf::Vector2f velocidade;
-			int vida;
-			int energia;
-			int pontuacao;
+			pGT->reiniciar();
 
-			linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> energia >> pontuacao; // Pegando as info
+			std::istringstream linhaAtual(linha);
+			std::string tipo;
+			linhaAtual >> tipo;
 
-			pCav = new Entidades::Personagens::Cavaleiro(1,
-				sf::Vector2f(50.f, 70.f),
-				posicao, velocidade,
-				vida, 110.0f, energia);
+			if (tipo == "Cavaleiro")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f velocidade;
+				int vida;
+				int energia;
+				int pontuacao;
 
-			pCav->setPontuacao(pontuacao);
+				linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> energia >> pontuacao; // Pegando as info
 
-			listaEntidades.incluirEntidade(pCav);
-			pGC->incluirJogador(pCav);
+				pCav = new Entidades::Personagens::Cavaleiro(1,
+					sf::Vector2f(50.f, 70.f),
+					posicao, velocidade,
+					vida, 110.0f, energia);
 
-			Entidades::Obstaculos::Obstaculo::setCavaleiro(pCav);
-			Entidades::Personagens::Inimigo::setCavaleiro(pCav);
+				pCav->setPontuacao(pontuacao);
+
+				listaEntidades.incluirEntidade(pCav);
+				pGC->incluirJogador(pCav);
+
+				Entidades::Obstaculos::Obstaculo::setCavaleiro(pCav);
+				Entidades::Personagens::Inimigo::setCavaleiro(pCav);
+			}
+
+
+			else if (tipo == "Curandeira")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f velocidade;
+				int vida;
+				float tempoAcumulado;
+
+				linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> tempoAcumulado; // Pegando as info
+
+				pCur = new Entidades::Personagens::Curandeira(1,
+					sf::Vector2f(50.f, 70.f),
+					posicao, velocidade,
+					vida, 110.0f);
+
+				pCur->setTempoAcumulado(tempoAcumulado);
+
+				listaEntidades.incluirEntidade(pCur);
+				pGC->incluirJogador(pCur);
+
+				Entidades::Obstaculos::Obstaculo::setCurandeira(pCur);
+				Entidades::Personagens::Inimigo::setCurandeira(pCur);
+			}
+
+			else if (tipo == "Mago")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f velocidade;
+				int vida;
+				int nivelMaldade;
+				float tempoAcumulado;
+
+				linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> nivelMaldade >> tempoAcumulado; // Pegando as info
+
+				Entidades::Personagens::Mago* pM =
+					new Entidades::Personagens::Mago(1, sf::Vector2f(40.f, 70.f), posicao, velocidade, vida, nivelMaldade);
+
+				pM->setTempoAcumulado(tempoAcumulado);
+				listaEntidades.incluirEntidade(pM);
+				pGC->incluirInimigo(pM);
+
+				numeroInimigos++;
+			}
+
+			else if (tipo == "Aranha")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f velocidade;
+				int nivelMaldade;
+				int vida;
+				float alcance;
+
+				linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> nivelMaldade >> alcance; // Pegando as info
+
+				Entidades::Personagens::Aranha* pAr =
+					new Entidades::Personagens::Aranha(1, sf::Vector2f(50.f, 70.f), posicao, velocidade, vida, nivelMaldade,
+						alcance);
+
+				listaEntidades.incluirEntidade(pAr);
+				pGC->incluirInimigo(pAr);
+
+				numeroInimigos++;
+			}
+
+			else if (tipo == "Lava")
+			{
+				sf::Vector2f tamanho;
+				sf::Vector2f posicao;
+
+				linhaAtual >> posicao.x >> posicao.y >> tamanho.x >> tamanho.y; // Pegando as info
+
+				Entidades::Obstaculos::Lava* pL = new Entidades::Obstaculos::Lava(1, tamanho,
+					posicao);
+
+				pL->setVelocidadeX(0);
+				pL->setVelocidadeY(0);
+
+				pGC->incluirObstaculo(pL);
+				listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pL));
+			}
+
+			else if (tipo == "Plataforma")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f tamanho;
+				bool armadilha;
+
+				linhaAtual >> posicao.x >> posicao.y >> tamanho.x >> tamanho.y >> armadilha; // Pegando as info
+
+				Entidades::Obstaculos::Plataforma* pP = new Entidades::Obstaculos::Plataforma(1, tamanho,
+					posicao, armadilha);
+
+				pP->setVelocidadeX(0);
+				pP->setVelocidadeY(0);
+
+				pGC->incluirObstaculo(pP);
+				listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP));
+			}
 		}
-
-
-		if (tipo == "Curandeira")
-		{
-			sf::Vector2f posicao;
-			sf::Vector2f velocidade;
-			int vida;
-			float tempoAcumulado;
-
-			linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> tempoAcumulado; // Pegando as info
-
-			pCur = new Entidades::Personagens::Curandeira(1,
-				sf::Vector2f(50.f, 70.f),
-				posicao, velocidade,
-				vida, 110.0f);
-
-			pCur->setTempoAcumulado(tempoAcumulado);
-
-			listaEntidades.incluirEntidade(pCur);
-			pGC->incluirJogador(pCur);
-
-			Entidades::Obstaculos::Obstaculo::setCurandeira(pCur);
-			Entidades::Personagens::Inimigo::setCurandeira(pCur);
-		}
-
-		if (tipo == "Mago")
-		{
-			sf::Vector2f posicao;
-			sf::Vector2f velocidade;
-			int vida;
-			int nivelMaldade;
-			float tempoAcumulado;
-
-			linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> nivelMaldade >> tempoAcumulado; // Pegando as info
-
-			Entidades::Personagens::Mago* pM =
-				new Entidades::Personagens::Mago(1, sf::Vector2f(40.f, 70.f), posicao, velocidade, vida, nivelMaldade);
-
-			pM->setTempoAcumulado(tempoAcumulado);
-			listaEntidades.incluirEntidade(pM);
-			pGC->incluirInimigo(pM);
-
-			numeroInimigos++;
-		}
-
-		if (tipo == "Aranha")
-		{
-			sf::Vector2f posicao;
-			sf::Vector2f velocidade;
-			int nivelMaldade;
-			int vida;
-			float alcance;
-
-			linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> nivelMaldade >> alcance; // Pegando as info
-
-			Entidades::Personagens::Aranha* pAr =
-				new Entidades::Personagens::Aranha(1, sf::Vector2f(50.f, 70.f), posicao, velocidade, vida, nivelMaldade,
-					alcance);
-
-			listaEntidades.incluirEntidade(pAr);
-			pGC->incluirInimigo(pAr);
-
-			numeroInimigos++;
-		}
-
-		if (tipo == "Lava")
-		{
-			sf::Vector2f tamanho;
-			sf::Vector2f posicao;
-
-			linhaAtual >> posicao.x >> posicao.y >> tamanho.x >> tamanho.y; // Pegando as info
-
-			Entidades::Obstaculos::Lava* pL = new Entidades::Obstaculos::Lava(1, tamanho,
-				posicao);
-
-			pL->setVelocidadeX(0);
-			pL->setVelocidadeY(0);
-
-			pGC->incluirObstaculo(pL);
-			listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pL));
-		}
-
-		if (tipo == "Plataforma")
-		{
-			sf::Vector2f posicao;
-			sf::Vector2f tamanho;
-			bool armadilha;
-
-			linhaAtual >> posicao.x >> posicao.y >> tamanho.x >> tamanho.y >> armadilha; // Pegando as info
-
-			Entidades::Obstaculos::Plataforma* pP = new Entidades::Obstaculos::Plataforma(1, tamanho,
-				posicao, armadilha);
-
-			pP->setVelocidadeX(0);
-			pP->setVelocidadeY(0);
-
-			pGC->incluirObstaculo(pP);
-			listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP));
-		}
+	}
+	catch (...)
+	{
+		std::cout << "Erro ao carregar a fase" << std::endl;
 	}
 }

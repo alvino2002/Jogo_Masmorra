@@ -1,5 +1,6 @@
 #include "../headers/ZonaDosEsqueletos.h"
 #include <fstream>
+#include <iostream>
 
 
 using namespace Masmorra::Fases;
@@ -17,7 +18,6 @@ ZonaDosEsqueletos::ZonaDosEsqueletos(int id, int qtdeJogadores, bool novoJogo) :
 		criarCenario();
 		criarInimigos();
 		criarObstaculos();
-
 		numeroInimigos = numeroAranhas + numeroEsqueletos;
 	}
 
@@ -42,7 +42,7 @@ void ZonaDosEsqueletos::criarEsqueletos()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1450.f, 670.f),
 		sf::Vector2f(50.f, 0.f),
-		30, 2,
+		20, 2,
 		300.f
 	);
 	pGC->incluirInimigo(pE);
@@ -51,11 +51,11 @@ void ZonaDosEsqueletos::criarEsqueletos()
 	//ESQUELETO 02
 	Entidades::Personagens::Esqueleto* pE2 = new Entidades::Personagens::Esqueleto
 	(
-		1,
+	   1,
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(890.f, 190.f),
 		sf::Vector2f(50.f, 0.f),
-		20, 2,
+		25, 2,
 		200.f
 	);
 	pGC->incluirInimigo(pE2);
@@ -68,7 +68,7 @@ void ZonaDosEsqueletos::criarEsqueletos()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(500.f, 520.f),
 		sf::Vector2f(50.f, 0.f),
-		20, 1,
+		30, 1,
 		200.f
 	);
 	pGC->incluirInimigo(pE3);
@@ -118,7 +118,7 @@ void ZonaDosEsqueletos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1190.f, 690.f),
 		sf::Vector2f(50.f, 0.f),
-		30, 1,
+		40, 1,
 		300.f
 	);
 	pGC->incluirInimigo(pA);
@@ -131,7 +131,7 @@ void ZonaDosEsqueletos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1280.f, 250.f),
 		sf::Vector2f(50.f, 0.f),
-		35, 1,
+		45, 1,
 		200.f
 	);
 	pGC->incluirInimigo(pA2);
@@ -144,7 +144,7 @@ void ZonaDosEsqueletos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(500.f, 690.f),
 		sf::Vector2f(50.f, 0.f),
-		40, 2,
+		50, 2,
 		350.f
 	);
 	pGC->incluirInimigo(pA3);
@@ -159,7 +159,7 @@ void ZonaDosEsqueletos::criarAranhas()
 			sf::Vector2f(50.f, 70.f),
 			sf::Vector2f(900.f, 800.f),
 			sf::Vector2f(50.f, 0.f),
-			45, 2,
+			55, 2,
 			400.f
 		);
 		pGC->incluirInimigo(pA4);
@@ -175,7 +175,7 @@ void ZonaDosEsqueletos::criarAranhas()
 			sf::Vector2f(50.f, 70.f),
 			sf::Vector2f(480.f, 190.f),
 			sf::Vector2f(50.f, 0.f),
-			50, 2,
+			40, 2,
 			100.f
 		);
 		pGC->incluirInimigo(pA5);
@@ -524,160 +524,174 @@ void ZonaDosEsqueletos::criarInimigos()
 
 void ZonaDosEsqueletos::salvarFase()
 {
-	std::ofstream arquivo("txt/fase.txt");
-	arquivo << "Fase1" << '\n';
-
-	for (int i = listaEntidades.getTam() - 1; i >= 0; i--)
+	try
 	{
-		Entidades::Entidade* pE = listaEntidades.getEntidade(i);
+		std::ofstream arquivo("txt/fase.txt");
+		arquivo << "Fase1" << '\n';
 
-		if (pE->getAtivo() == true)
+		for (int i = listaEntidades.getTam() - 1; i >= 0; i--)
 		{
-			arquivo << pE->getBuffer();
+			Entidades::Entidade* pE = listaEntidades.getEntidade(i);
+
+			if (pE->getAtivo() == true)
+			{
+				arquivo << pE->getBuffer();
+			}
 		}
+		arquivo.close();
 	}
-	arquivo.close();
+	catch (...)
+	{
+		std::cout << "Erro ao salvar a fase" << std::endl;
+	}
 }
 
 void ZonaDosEsqueletos::carregarFase()
 {
 	numeroInimigos = 0;
-
-	std::ifstream arquivo("txt/fase.txt");
-
-	std::string linha;
-
-	std::getline(arquivo, linha); // Descarta a primeira linha ja que ela representa apenas o numero da fase
-
-	while (std::getline(arquivo, linha)) // Lendo linha por linha
+	try
 	{
-		pGT->reiniciar();
+		std::ifstream arquivo("txt/fase.txt");
 
-		std::istringstream linhaAtual(linha);
-		std::string tipo;
-		linhaAtual >> tipo;
+		std::string linha;
 
-		if (tipo == "Cavaleiro")
+		std::getline(arquivo, linha); // Descarta a primeira linha ja que ela representa apenas o numero da fase
+
+		while (std::getline(arquivo, linha)) // Lendo linha por linha
 		{
-			sf::Vector2f posicao;
-			sf::Vector2f velocidade;
-			int vida;
-			int energia;
-			int pontuacao;
+			pGT->reiniciar();
 
-			linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> energia >> pontuacao; // Pegando as info
+			std::istringstream linhaAtual(linha);
+			std::string tipo;
+			linhaAtual >> tipo;
 
-			pCav = new Entidades::Personagens::Cavaleiro(1,
-				sf::Vector2f(50.f, 70.f),
-				posicao, velocidade,
-				vida, 110.0f, energia);
+			if (tipo == "Cavaleiro")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f velocidade;
+				int vida;
+				int energia;
+				int pontuacao;
 
-			pCav->setPontuacao(pontuacao);
+				linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> energia >> pontuacao; // Pegando as info
 
-			listaEntidades.incluirEntidade(pCav);
-			pGC->incluirJogador(pCav);
+				pCav = new Entidades::Personagens::Cavaleiro(1,
+					sf::Vector2f(50.f, 70.f),
+					posicao, velocidade,
+					vida, 110.0f, energia);
 
-			Entidades::Obstaculos::Obstaculo::setCavaleiro(pCav);
-			Entidades::Personagens::Inimigo::setCavaleiro(pCav);
+				pCav->setPontuacao(pontuacao);
+
+				listaEntidades.incluirEntidade(pCav);
+				pGC->incluirJogador(pCav);
+
+				Entidades::Obstaculos::Obstaculo::setCavaleiro(pCav);
+				Entidades::Personagens::Inimigo::setCavaleiro(pCav);
+			}
+
+
+			else if (tipo == "Curandeira")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f velocidade;
+				int vida;
+				float tempoAcumulado;
+
+				linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> tempoAcumulado; // Pegando as info
+
+				pCur = new Entidades::Personagens::Curandeira(1,
+					sf::Vector2f(50.f, 70.f),
+					posicao, velocidade,
+					vida, 110.0f);
+
+				pCur->setTempoAcumulado(tempoAcumulado);
+
+				listaEntidades.incluirEntidade(pCur);
+				pGC->incluirJogador(pCur);
+
+				Entidades::Obstaculos::Obstaculo::setCurandeira(pCur);
+				Entidades::Personagens::Inimigo::setCurandeira(pCur);
+			}
+
+			else if (tipo == "Esqueleto")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f velocidade;
+				int nivelMaldade;
+				int vida;
+				float alcance;
+
+				linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> nivelMaldade >> alcance; // Pegando as info
+
+				Entidades::Personagens::Esqueleto* pEsq =
+					new Entidades::Personagens::Esqueleto(1, sf::Vector2f(50.f, 70.f), posicao, velocidade, vida, nivelMaldade,
+						alcance);
+
+				listaEntidades.incluirEntidade(pEsq);
+				pGC->incluirInimigo(pEsq);
+
+				numeroInimigos++;
+			}
+
+			else if (tipo == "Aranha")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f velocidade;
+				int nivelMaldade;
+				int vida;
+				float alcance;
+
+				linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> nivelMaldade >> alcance; // Pegando as info
+
+
+				Entidades::Personagens::Aranha* pAr =
+					new Entidades::Personagens::Aranha(1, sf::Vector2f(50.f, 70.f), posicao, velocidade, vida, nivelMaldade,
+						alcance);
+
+				listaEntidades.incluirEntidade(pAr);
+				pGC->incluirInimigo(pAr);
+
+				numeroInimigos++;
+			}
+
+			else if (tipo == "Caixa")
+			{
+				sf::Vector2f posicao;
+
+				linhaAtual >> posicao.x >> posicao.y; // Pegando as info
+
+				Entidades::Obstaculos::Caixa* pC = new Entidades::Obstaculos::Caixa(1, sf::Vector2f(60.0f, 70.0f),
+					posicao);
+
+				pC->setVelocidadeX(0);
+				pC->setVelocidadeY(0);
+
+				pGC->incluirObstaculo(pC);
+				listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pC));
+			}
+
+			else if (tipo == "Plataforma")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f tamanho;
+				bool armadilha;
+
+				linhaAtual >> posicao.x >> posicao.y >> tamanho.x >> tamanho.y >> armadilha; // Pegando as info
+
+				Entidades::Obstaculos::Plataforma* pP = new Entidades::Obstaculos::Plataforma(1, tamanho,
+					posicao, armadilha);
+
+				pP->setVelocidadeX(0);
+				pP->setVelocidadeY(0);
+
+				pGC->incluirObstaculo(pP);
+				listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP));
+			}
 		}
 
-
-		if (tipo == "Curandeira")
-		{
-			sf::Vector2f posicao;
-			sf::Vector2f velocidade;
-			int vida;
-			float tempoAcumulado;
-
-			linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> tempoAcumulado; // Pegando as info
-
-			pCur = new Entidades::Personagens::Curandeira(1,
-				sf::Vector2f(50.f, 70.f),
-				posicao, velocidade,
-				vida, 110.0f);
-
-			pCur->setTempoAcumulado(tempoAcumulado);
-
-			listaEntidades.incluirEntidade(pCur);
-			pGC->incluirJogador(pCur);
-
-			Entidades::Obstaculos::Obstaculo::setCurandeira(pCur);
-			Entidades::Personagens::Inimigo::setCurandeira(pCur);
-		}
-
-		if (tipo == "Esqueleto")
-		{
-			sf::Vector2f posicao;
-			sf::Vector2f velocidade;
-			int nivelMaldade;
-			int vida;
-			float alcance;
-
-			linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> nivelMaldade >> alcance; // Pegando as info
-
-			Entidades::Personagens::Esqueleto* pEsq =
-				new Entidades::Personagens::Esqueleto(1, sf::Vector2f(50.f, 70.f), posicao, velocidade, vida, nivelMaldade,
-					alcance);
-
-			listaEntidades.incluirEntidade(pEsq);
-			pGC->incluirInimigo(pEsq);
-
-			numeroInimigos++;
-		}
-
-		if (tipo == "Aranha")
-		{
-			sf::Vector2f posicao;
-			sf::Vector2f velocidade;
-			int nivelMaldade;
-			int vida;
-			float alcance;
-
-			linhaAtual >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> vida >> nivelMaldade >> alcance; // Pegando as info
-
-
-			Entidades::Personagens::Aranha* pAr =
-				new Entidades::Personagens::Aranha(1, sf::Vector2f(50.f, 70.f), posicao, velocidade, vida, nivelMaldade,
-					alcance);
-
-			listaEntidades.incluirEntidade(pAr);
-			pGC->incluirInimigo(pAr);
-
-			numeroInimigos++;
-		}
-
-		if (tipo == "Caixa")
-		{
-			sf::Vector2f posicao;
-
-			linhaAtual >> posicao.x >> posicao.y; // Pegando as info
-
-			Entidades::Obstaculos::Caixa* pC = new Entidades::Obstaculos::Caixa(1, sf::Vector2f(60.0f, 70.0f),
-				posicao);
-
-			pC->setVelocidadeX(0);
-			pC->setVelocidadeY(0);
-
-			pGC->incluirObstaculo(pC);
-			listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pC));
-		}
-
-		if (tipo == "Plataforma")
-		{
-			sf::Vector2f posicao;
-			sf::Vector2f tamanho;
-			bool armadilha;
-
-			linhaAtual >> posicao.x >> posicao.y >> tamanho.x >> tamanho.y >> armadilha; // Pegando as info
-
-			Entidades::Obstaculos::Plataforma* pP = new Entidades::Obstaculos::Plataforma(1, tamanho,
-				posicao, armadilha);
-
-			pP->setVelocidadeX(0);
-			pP->setVelocidadeY(0);
-
-			pGC->incluirObstaculo(pP);
-			listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP));
-		}
+	}
+	catch (...)
+	{
+		std::cout << "Erro ao carregar a fase" << std::endl;
 	}
 }

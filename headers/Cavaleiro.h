@@ -52,7 +52,7 @@ namespace Masmorra
 				void setEstaAtacando(bool atacando);
 				int getDano()const;
 				void operator--(); // Decrementar energia
-				void recuperar();
+				void recuperar(); // Recarregar a energia
 				void operator++(); // Incrementar numero de inimigos eliminados
 				static int getInimigosEliminados();
 				static void setInimigosEliminados(int numeroInimigos);

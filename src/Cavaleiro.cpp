@@ -1,6 +1,6 @@
  #include "../headers/Cavaleiro.h"
 #include "../headers/Curandeira.h"
-
+#include <iostream>
 
 using namespace Masmorra::Entidades::Personagens;
 
@@ -8,7 +8,7 @@ using namespace Masmorra::Entidades::Personagens;
 Cavaleiro::Cavaleiro(int id, sf::Vector2f tamanho, sf::Vector2f posicao, sf::Vector2f velocidade, int vida, float pulo, int energia) :
 	Jogador(id, tamanho, posicao, velocidade, vida, pulo),
 	estaAtacando(false),
-	dano(2),
+	dano(6),
 	energia(energia),
 	tempoRecuperar(),
 	duracaoRecuperacao(3.0f),
@@ -31,6 +31,8 @@ Cavaleiro::~Cavaleiro()
 
 void Cavaleiro::executar()
 {
+	std::cout << "vida do cavaleiro: " << vida << std::endl;
+
 	velAtual.x = 0;
 	/*Movimento do cavaleiro*/
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -172,7 +174,7 @@ void Cavaleiro::enfurecer()
 {
 	if (pCurandeira && pCurandeira->getAtivo() == false)
 	{
-		dano = 4;
+		dano = 8;
 	}
 }
 

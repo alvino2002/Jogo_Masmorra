@@ -18,7 +18,6 @@ namespace Masmorra
 	class Ente
 	{
 	protected:
-
 		/*Utilizamos static pois sao ponteiros globais, compartilhado para todos*/
 		static Gerenciadores::GerenciadorGrafico* pGG;
 		static Gerenciadores::GerenciadorColisao* pGC;

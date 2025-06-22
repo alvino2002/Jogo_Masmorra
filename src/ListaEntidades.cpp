@@ -27,7 +27,7 @@ Masmorra::Entidades::Entidade* ListaEntidades::getEntidade(int pos)
 	return listaDeEntidades.getpInfo(pos);
 }
 
-unsigned int ListaEntidades::getTam()
+int ListaEntidades::getTam()
 {
 	return listaDeEntidades.getTam();
 }

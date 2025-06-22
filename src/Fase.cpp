@@ -28,12 +28,12 @@ Fase::Fase(int id, int qtdeJogadores, bool novoJogo) :
 				sf::Vector2f(50.f, 70.f),
 				sf::Vector2f(860.f, 430.f),
 				sf::Vector2f(200.f, 0.f),
-				70, 110.0f, 20);
+				120, 110.0f, 20);
 
 			pCur = nullptr;
 
-			Entidades::Obstaculos::Obstaculo::setCavaleiro(pCav); // Inimigos conhecerem o cavaleiro
-			Entidades::Personagens::Inimigo::setCavaleiro(pCav);
+			Entidades::Obstaculos::Obstaculo::setCavaleiro(pCav); // Obstaculos conhecerem o cavaleiro
+			Entidades::Personagens::Inimigo::setCavaleiro(pCav); // Inimigos conhecerem o cavaleiro
 
 			pGC->incluirJogador(pCav);
 
@@ -58,7 +58,7 @@ Fase::Fase(int id, int qtdeJogadores, bool novoJogo) :
 			Entidades::Obstaculos::Obstaculo::setCurandeira(pCur); // Obstaculos conhecerem a curandeira
 			Entidades::Personagens::Inimigo::setCurandeira(pCur);
 
-			Entidades::Obstaculos::Obstaculo::setCavaleiro(pCav); // Inimigos conhecerem o cavaleiro
+			Entidades::Obstaculos::Obstaculo::setCavaleiro(pCav); // Obstaculos conhecerem o cavaleiro
 			Entidades::Personagens::Inimigo::setCavaleiro(pCav);
 
 			listaEntidades.incluirEntidade(pCav);

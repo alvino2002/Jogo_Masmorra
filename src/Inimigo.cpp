@@ -66,7 +66,7 @@ void Inimigo::mover()
 {
 	Jogador* pJogador = static_cast<Jogador*>(getMaisProximo()); // Inimigo persegue o jogador mais proximo
 
-	if (fabs(pJogador->getCorpo().getPosition().y - corpo.getPosition().y) < 10.0f) // Começa a perseguir apenas se estiverem
+	if (fabs(pJogador->getCorpo().getPosition().y - corpo.getPosition().y) < 50.0f) // Começa a perseguir apenas se estiverem
 		//em alturas proximas
 	{
 		if (pJogador->getCorpo().getPosition().x > corpo.getPosition().x &&

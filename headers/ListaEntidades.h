@@ -16,7 +16,7 @@ namespace Masmorra
 			~ListaEntidades();
 			void incluirEntidade(Entidades::Entidade* pEntidade);
 			Entidades::Entidade* getEntidade(int pos);
-			unsigned int getTam();
+			int getTam();
 			void limparLista();
 			void removerNos();
 		};
