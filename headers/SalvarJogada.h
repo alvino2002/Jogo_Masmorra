@@ -1,7 +1,24 @@
 #pragma once
 #include "GerenciadorEstado.h"
-#include "EstadoPrimeiraFase.h"
-#include "EstadoSegundaFase.h"
+
+namespace Masmorra
+{
+	namespace Estados
+	{
+		class EstadoPrimeiraFase;
+		class EstadoSegundaFase;
+	}
+}
+
+namespace Masmorra
+{
+	namespace Fases
+	{
+		class ZonaDosEsqueletos;
+		class RecintoDosMagos;
+	}
+}
+
 
 /* A utilização e construção de buffers nessa classe e em outros locais foi auxiliada pela IA ChatGPT*/
 
@@ -13,6 +30,8 @@ namespace Masmorra
 		static Fases::ZonaDosEsqueletos* pPrimeira;
 		static Fases::RecintoDosMagos* pSegunda;
 		Gerenciadores::GerenciadorEstado* pGEs;
+		Estados::EstadoPrimeiraFase* pPrim;
+		Estados::EstadoSegundaFase* pSeg;
 
 	public:
 		SalvarJogada();

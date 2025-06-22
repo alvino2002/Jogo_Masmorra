@@ -1,5 +1,6 @@
 #pragma once
 #include "Ente.h"
+#include <vector>
 
 /* A construção dessa classe e de suas derivadas tiveram auxílio da ferramenta de inteligência artificial ChatGPT */
 

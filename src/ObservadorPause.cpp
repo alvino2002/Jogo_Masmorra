@@ -1,6 +1,7 @@
 #include "../headers/ObservadorPause.h"
 #include "../headers/EstadoMenu.h"
 #include "../headers/SalvarJogada.h"
+#include "../headers/EstadoPrimeiraFase.h"
 
 
 using namespace Masmorra::Observadores;
@@ -9,7 +10,8 @@ using namespace Masmorra::Observadores;
 ObservadorPause::ObservadorPause() :
 	Observador(),
 	pSalvar(),
-	pMenu()
+	pMenu(),
+	pPrimeiro()
 {
 	pGG = Gerenciadores::GerenciadorGrafico::getGerenciadorGrafico();
 }
@@ -18,6 +20,7 @@ ObservadorPause::ObservadorPause() :
 ObservadorPause::~ObservadorPause()
 {
 	pMenu = nullptr;
+	pPrimeiro = nullptr;
 
 	if (pSalvar)
 	{
@@ -37,10 +40,10 @@ void ObservadorPause::notificarEvento(const std::string& evento)
 	{
 		pSalvar = new Masmorra::SalvarJogada();
 
-		Estados::EstadoPrimeiraFase* primeiraFase = dynamic_cast<Estados::EstadoPrimeiraFase*>(pGEs->getEstado(1));
+		pPrimeiro = dynamic_cast<Estados::EstadoPrimeiraFase*>(pGEs->getEstado(1));
 		/*Verificar se o proximo estado da pilha é primeira fase, se for, o cast dá certo, se nao, recebe nullptr*/
 
-		if (primeiraFase)
+		if (pPrimeiro)
 		{
 			pSalvar->salvarFase(1);
 		}

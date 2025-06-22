@@ -9,6 +9,7 @@ namespace Masmorra
 	namespace Estados
 	{
 		class EstadoMenu;
+		class EstadoPrimeiraFase;
 	}
 }
 
@@ -16,7 +17,6 @@ namespace Masmorra
 {
 	class SalvarJogada;
 }
-
 
 namespace Masmorra
 {
@@ -26,6 +26,7 @@ namespace Masmorra
 		{
 		private:
 			Estados::EstadoMenu* pMenu;
+			Estados::EstadoPrimeiraFase* pPrimeiro;
 			Masmorra::SalvarJogada* pSalvar;
 			Gerenciadores::GerenciadorGrafico* pGG;
 

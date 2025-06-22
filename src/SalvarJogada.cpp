@@ -1,4 +1,8 @@
 #include "../headers/SalvarJogada.h"
+#include "../headers/ZonaDosEsqueletos.h"
+#include "../headers/RecintoDosMagos.h"
+#include "../headers/EstadoPrimeiraFase.h"
+#include "../headers/EstadoSegundaFase.h"
 #include <fstream>
 #include <iostream>
 
@@ -6,7 +10,9 @@
 using namespace Masmorra;
 
 
-SalvarJogada::SalvarJogada()
+SalvarJogada::SalvarJogada():
+	pPrim(),
+	pSeg()
 {
 	pGEs = Gerenciadores::GerenciadorEstado::getGerenciadorEstado();
 }
@@ -14,6 +20,8 @@ SalvarJogada::SalvarJogada()
 SalvarJogada::~SalvarJogada()
 {
 	pGEs = nullptr;
+	pPrim = nullptr;
+	pSeg = nullptr;
 }
 
 void SalvarJogada::salvarFase(int fase)
@@ -56,13 +64,13 @@ void SalvarJogada::executar()
 
 		if (primeiraLinha == "Fase1")
 		{
-			Estados::EstadoPrimeiraFase* pPrim = new Estados::EstadoPrimeiraFase(2, false); // Nao eh mais novo jogo;
+			pPrim = new Estados::EstadoPrimeiraFase(2, false); // Nao eh mais novo jogo;
 			pGEs->adicionarEstado(pPrim);
 		}
 
-		else
+		else // Fase2
 		{
-			Estados::EstadoSegundaFase* pSeg = new Estados::EstadoSegundaFase(2, false); // Nao eh mais novo jogo;
+			pSeg = new Estados::EstadoSegundaFase(2, false); // Nao eh mais novo jogo;
 			pGEs->adicionarEstado(pSeg);
 		}
 	}
