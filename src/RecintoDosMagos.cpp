@@ -457,7 +457,7 @@ void RecintoDosMagos::criarPlataformas()
 
 	if (numeroPlataformas > 30)
 	{
-		//P30
+		//P31
 		Entidades::Obstaculos::Plataforma* pP31 = new Entidades::Obstaculos::Plataforma(
 			1,
 			sf::Vector2f(50.f, 20.f),
