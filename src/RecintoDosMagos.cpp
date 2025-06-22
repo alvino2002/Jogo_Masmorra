@@ -145,7 +145,7 @@ void RecintoDosMagos::criarAranhas()
 
 void RecintoDosMagos::criarPlataformas()
 {
-	int numeroPlataformas = rand() % 3 + 28; // 28 a 30
+	int numeroPlataformas = rand() % 3 + 29; // 29 a 31
 
 	//P01
 	Entidades::Obstaculos::Plataforma* pP1 = new Entidades::Obstaculos::Plataforma(
@@ -325,7 +325,7 @@ void RecintoDosMagos::criarPlataformas()
 		1,
 		sf::Vector2f(900.f, 20.f),
 		sf::Vector2f(500.f, 1010.f),
-		true
+		false
 	);
 	pGC->incluirObstaculo(pP18);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP18));
@@ -430,32 +430,42 @@ void RecintoDosMagos::criarPlataformas()
 	pGC->incluirObstaculo(pP28);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP28));
 
+	//P29
+	Entidades::Obstaculos::Plataforma* pP29 = new Entidades::Obstaculos::Plataforma(
+		1,
+		sf::Vector2f(140.f, 20.f),
+		sf::Vector2f(1510.f, 1010.f),
+		false
+	);
+	pGC->incluirObstaculo(pP29);
+	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP29));
+
 	/*PLATAFORMAS VARIAVEIS*/
 
 	if (numeroPlataformas > 28)
 	{
-		//P29
-		Entidades::Obstaculos::Plataforma* pP29 = new Entidades::Obstaculos::Plataforma(
+		//P30
+		Entidades::Obstaculos::Plataforma* pP30 = new Entidades::Obstaculos::Plataforma(
 			1,
 			sf::Vector2f(150.f, 20.f),
 			sf::Vector2f(500.f, 410.f),
 			false
 		);
-		pGC->incluirObstaculo(pP29);
-		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP29));
+		pGC->incluirObstaculo(pP30);
+		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP30));
 	}
 
 	if (numeroPlataformas > 29)
 	{
-		//P30
-		Entidades::Obstaculos::Plataforma* pP30 = new Entidades::Obstaculos::Plataforma(
+		//P31
+		Entidades::Obstaculos::Plataforma* pP31 = new Entidades::Obstaculos::Plataforma(
 			1,
 			sf::Vector2f(50.f, 20.f),
 			sf::Vector2f(1160.f, 780.f),
 			false
 		);
-		pGC->incluirObstaculo(pP30);
-		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP30));
+		pGC->incluirObstaculo(pP31);
+		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP31));
 	}
 }
 
@@ -468,7 +478,7 @@ void RecintoDosMagos::criarMagos()
 	(
 		1,
 		sf::Vector2f(40.f, 70.f),
-		sf::Vector2f(540.f, 900.f),
+		sf::Vector2f(570.f, 920.f),
 		sf::Vector2f(50.f, 0.f),
 		10, 1
 	);
@@ -508,7 +518,7 @@ void RecintoDosMagos::criarMagos()
 			sf::Vector2f(40.f, 70.f),
 			sf::Vector2f(1560.f, 910.f),
 			sf::Vector2f(50.f, 0.f),
-			70, 1
+			70, 2
 		);
 		pGC->incluirInimigo(pM4);
 		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pM4));
