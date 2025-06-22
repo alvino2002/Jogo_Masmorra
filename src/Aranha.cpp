@@ -17,22 +17,20 @@ Aranha::Aranha(
 {
 	if (nivelDeMaldade == 1)
 	{
-		mordida = 2;
-		veneno = 1;
+		mordida = 3;
+		veneno = 2;
 	}
 
 	else // nivelDeMaldade == 2
 	{
-		mordida = 3;
-		veneno = 2;
+		mordida = 4;
+		veneno = 3;
 	}
 	
 	texturaAranha = new sf::Texture();
 	texturaAranha->loadFromFile("texturas e fonte/spider_Sprite.png");
 	corpo.setTexture(texturaAranha);
 	pGA->pegarAnimacao(texturaAranha, sf::Vector2u(3, 4));
-	
-	///corpo.setFillColor(sf::Color::Magenta);
 }
 
 Aranha::~Aranha()

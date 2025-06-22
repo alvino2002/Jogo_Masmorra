@@ -1,5 +1,5 @@
  #include "../headers/Cavaleiro.h"
-#include <iostream>
+#include "../headers/Curandeira.h"
 
 
 using namespace Masmorra::Entidades::Personagens;
@@ -14,7 +14,8 @@ Cavaleiro::Cavaleiro(int id, sf::Vector2f tamanho, sf::Vector2f posicao, sf::Vec
 	duracaoRecuperacao(3.0f),
 	tempoAtaque(),
 	recargaAtaque(0.5f),
-	ataquePronto(true)
+	ataquePronto(true),
+	pCurandeira()
 {
 	texturaCavaleiro = new sf::Texture();
 	texturaCavaleiro->loadFromFile("texturas e fonte/knight_Sprite.png");
@@ -30,8 +31,6 @@ Cavaleiro::~Cavaleiro()
 
 void Cavaleiro::executar()
 {
-	std::cout << vida << std::endl;
-
 	velAtual.x = 0;
 	/*Movimento do cavaleiro*/
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
@@ -81,8 +80,6 @@ void Cavaleiro::executar()
 		recuperar();
 	}
 
-	/*Oi*/
-
 	if (vida <= 0)
 	{
 		setVivo(false);
@@ -111,6 +108,8 @@ void Cavaleiro::executar()
 	corpo.setTextureRect(pGA->getFrameAtual());
 
 	salvarDataBuffer();
+
+	enfurecer();
 }
 
 bool Cavaleiro::getEstaAtacando()const
@@ -159,6 +158,22 @@ int Cavaleiro::getInimigosEliminados()
 void Cavaleiro::setInimigosEliminados(int numeroInimigos)
 {
 	inimigosEliminados = numeroInimigos;
+}
+
+void Cavaleiro::setCurandeira(Curandeira* pCur)
+{
+	if (pCur)
+	{
+		pCurandeira = pCur;
+	}
+}
+
+void Cavaleiro::enfurecer()
+{
+	if (pCurandeira && pCurandeira->getAtivo() == false)
+	{
+		dano = 4;
+	}
 }
 
 void Cavaleiro::salvarDataBuffer()

@@ -12,7 +12,8 @@ RecintoDosMagos::RecintoDosMagos(int id, int qtdeJogadores, bool novoJogo) :
 	venceu(false),
 	numeroChefoes()
 {
-	srand(time(NULL));
+	time_t t;
+	srand((unsigned)time(&t));
 
 	if (novoJogo)
 	{
@@ -77,7 +78,7 @@ void RecintoDosMagos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1250.f, 280.f),
 		sf::Vector2f(50.f, 0.f),
-		10, 2,
+		40, 2,
 		300.f
 	);
 	pGC->incluirInimigo(pA1);
@@ -90,7 +91,7 @@ void RecintoDosMagos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1420.f, 500.f),
 		sf::Vector2f(50.f, 0.f),
-		10, 2,
+		35, 2,
 		300.f
 	);
 	pGC->incluirInimigo(pA2);
@@ -103,7 +104,7 @@ void RecintoDosMagos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1260.f, 950.f),
 		sf::Vector2f(50.f, 0.f),
-		10, 1,
+		40, 1,
 		400.f
 	);
 	pGC->incluirInimigo(pA3);
@@ -118,7 +119,7 @@ void RecintoDosMagos::criarAranhas()
 			sf::Vector2f(50.f, 70.f),
 			sf::Vector2f(850.f, 450.f),
 			sf::Vector2f(50.f, 0.f),
-			10, 2,
+			30, 2,
 			450.f
 		);
 		pGC->incluirInimigo(pA4);
@@ -133,7 +134,7 @@ void RecintoDosMagos::criarAranhas()
 				sf::Vector2f(50.f, 70.f),
 				sf::Vector2f(970.f, 1100.f),
 				sf::Vector2f(50.f, 0.f),
-				10, 2,
+				50, 2,
 				350.f
 			);
 			pGC->incluirInimigo(pA5);
@@ -147,7 +148,6 @@ void RecintoDosMagos::criarPlataformas()
 	int numeroPlataformas = rand() % 3 + 28; // 28 a 30
 
 	//P01
-	
 	Entidades::Obstaculos::Plataforma* pP1 = new Entidades::Obstaculos::Plataforma(
 		1,
 		sf::Vector2f(500.f, 1500.f),
@@ -159,19 +159,17 @@ void RecintoDosMagos::criarPlataformas()
 	
 
 	//P02
-	
 	Entidades::Obstaculos::Plataforma* pP2 = new Entidades::Obstaculos::Plataforma(
 		1,
 		sf::Vector2f(500.f, 400.f),
 		sf::Vector2f(500.f, 500.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP2);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP2));
 	
 
 	//P03
-	
 	Entidades::Obstaculos::Plataforma* pP3 = new Entidades::Obstaculos::Plataforma(
 		1,
 		sf::Vector2f(500.f, 1500.f),
@@ -207,7 +205,7 @@ void RecintoDosMagos::criarPlataformas()
 		1,
 		sf::Vector2f(290.f, 20.f),
 		sf::Vector2f(710.f, 370.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP6);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP6));
@@ -227,7 +225,7 @@ void RecintoDosMagos::criarPlataformas()
 		1,
 		sf::Vector2f(200.f, 20.f),
 		sf::Vector2f(1350.f, 550.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP8);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP8));
@@ -287,7 +285,7 @@ void RecintoDosMagos::criarPlataformas()
 		1,
 		sf::Vector2f(50.f, 20.f),
 		sf::Vector2f(1520.f, 730.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP14);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP14));
@@ -327,7 +325,7 @@ void RecintoDosMagos::criarPlataformas()
 		1,
 		sf::Vector2f(900.f, 20.f),
 		sf::Vector2f(500.f, 1010.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP18);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP18));
@@ -397,7 +395,7 @@ void RecintoDosMagos::criarPlataformas()
 		1,
 		sf::Vector2f(100.f, 20.f),
 		sf::Vector2f(850.f, 1330.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP25);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP25));
@@ -470,7 +468,7 @@ void RecintoDosMagos::criarMagos()
 	(
 		1,
 		sf::Vector2f(40.f, 70.f),
-		sf::Vector2f(520.f, 920.f),
+		sf::Vector2f(540.f, 900.f),
 		sf::Vector2f(50.f, 0.f),
 		10, 1
 	);
@@ -502,8 +500,7 @@ void RecintoDosMagos::criarMagos()
 	pGC->incluirInimigo(pM3);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pM3));
 
-	if (numeroChefoes > 3)
-	{
+	
 		//MAGO 04
 		Entidades::Personagens::Mago* pM4 = new Entidades::Personagens::Mago
 		(
@@ -511,11 +508,11 @@ void RecintoDosMagos::criarMagos()
 			sf::Vector2f(40.f, 70.f),
 			sf::Vector2f(1560.f, 910.f),
 			sf::Vector2f(50.f, 0.f),
-			10,1
+			70, 1
 		);
 		pGC->incluirInimigo(pM4);
 		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pM4));
-	}
+
 }
 
 void RecintoDosMagos::criarLavas()
@@ -591,7 +588,6 @@ void RecintoDosMagos::executar()
 
 	pGG->limparJanela();
 	setarCamera();
-	//desenharFundo();
 	pGT->reiniciar();
 	pGC->executar();
 
@@ -629,7 +625,7 @@ void RecintoDosMagos::escreverNome()
 	sf::Text textoNome;
 	sf::Text instrucoes;
 
-	fonte.loadFromFile("Korcy.otf");
+	fonte.loadFromFile("texturas e fonte/Korcy.otf");
 
 	textoNome.setFont(fonte);
 	textoNome.setCharacterSize(32);
@@ -646,7 +642,7 @@ void RecintoDosMagos::escreverNome()
 	sf::Event event{};
 	bool nomeConfirmado = false;
 
-	sf::RenderWindow* janela = pGG->getJanela();
+	janela = pGG->getJanela();
 	janela->setView(janela->getDefaultView());
 
 	while (janela->isOpen() && !nomeConfirmado)
@@ -678,8 +674,6 @@ void RecintoDosMagos::escreverNome()
 				textoNome.setString("Nome: " + nomeJogador);
 			}
 		}
-
-		sf::RenderWindow* janela = pGG->getJanela();
 
 		pGG->limparJanela();
 		janela->draw(instrucoes);

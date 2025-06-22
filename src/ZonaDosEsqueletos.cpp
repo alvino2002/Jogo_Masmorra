@@ -8,7 +8,8 @@ using namespace Masmorra::Fases;
 ZonaDosEsqueletos::ZonaDosEsqueletos(int id, int qtdeJogadores, bool novoJogo) :
 	Fase(id, qtdeJogadores, novoJogo)
 {
-	srand(time(NULL));
+	time_t t;                  
+	srand((unsigned)time(&t));
 
 	if (novoJogo)
 	{
@@ -41,8 +42,8 @@ void ZonaDosEsqueletos::criarEsqueletos()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1450.f, 670.f),
 		sf::Vector2f(50.f, 0.f),
-		10, 2,
-		500.f
+		30, 2,
+		300.f
 	);
 	pGC->incluirInimigo(pE);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pE));
@@ -54,8 +55,8 @@ void ZonaDosEsqueletos::criarEsqueletos()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(890.f, 190.f),
 		sf::Vector2f(50.f, 0.f),
-		10, 2,
-		100.f
+		20, 2,
+		200.f
 	);
 	pGC->incluirInimigo(pE2);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pE2));
@@ -67,8 +68,8 @@ void ZonaDosEsqueletos::criarEsqueletos()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(500.f, 520.f),
 		sf::Vector2f(50.f, 0.f),
-		10, 1,
-		100.f
+		20, 1,
+		200.f
 	);
 	pGC->incluirInimigo(pE3);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pE3));
@@ -82,7 +83,7 @@ void ZonaDosEsqueletos::criarEsqueletos()
 			sf::Vector2f(50.f, 70.f),
 			sf::Vector2f(1090.f, 780.f),
 			sf::Vector2f(50.f, 0.f),
-			10, 1,
+			30, 1,
 			200.f
 		);
 		pGC->incluirInimigo(pE4);
@@ -98,7 +99,7 @@ void ZonaDosEsqueletos::criarEsqueletos()
 			sf::Vector2f(50.f, 70.f),
 			sf::Vector2f(130.f, 350.f),
 			sf::Vector2f(50.f, 0.f),
-			10, 2,
+			40, 2,
 			300.f
 		);
 		pGC->incluirInimigo(pE5);
@@ -117,7 +118,7 @@ void ZonaDosEsqueletos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1190.f, 690.f),
 		sf::Vector2f(50.f, 0.f),
-		10, 1,
+		30, 1,
 		300.f
 	);
 	pGC->incluirInimigo(pA);
@@ -130,7 +131,7 @@ void ZonaDosEsqueletos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(1280.f, 250.f),
 		sf::Vector2f(50.f, 0.f),
-		10, 1,
+		35, 1,
 		200.f
 	);
 	pGC->incluirInimigo(pA2);
@@ -143,7 +144,7 @@ void ZonaDosEsqueletos::criarAranhas()
 		sf::Vector2f(50.f, 70.f),
 		sf::Vector2f(500.f, 690.f),
 		sf::Vector2f(50.f, 0.f),
-		10, 2,
+		40, 2,
 		350.f
 	);
 	pGC->incluirInimigo(pA3);
@@ -158,7 +159,7 @@ void ZonaDosEsqueletos::criarAranhas()
 			sf::Vector2f(50.f, 70.f),
 			sf::Vector2f(900.f, 800.f),
 			sf::Vector2f(50.f, 0.f),
-			10, 2,
+			45, 2,
 			400.f
 		);
 		pGC->incluirInimigo(pA4);
@@ -174,7 +175,7 @@ void ZonaDosEsqueletos::criarAranhas()
 			sf::Vector2f(50.f, 70.f),
 			sf::Vector2f(480.f, 190.f),
 			sf::Vector2f(50.f, 0.f),
-			10, 2,
+			50, 2,
 			100.f
 		);
 		pGC->incluirInimigo(pA5);
@@ -184,7 +185,7 @@ void ZonaDosEsqueletos::criarAranhas()
 
 void ZonaDosEsqueletos::criarPlataformas()
 {
-	int numeroPlataformas = rand() % 3;
+	int numeroPlataformas = rand() % 3 + 20; // 20 a 22
 
 	//P01
 	Entidades::Obstaculos::Plataforma* pP1 = new Entidades::Obstaculos::Plataforma(
@@ -201,7 +202,7 @@ void ZonaDosEsqueletos::criarPlataformas()
 		1,
 		sf::Vector2f(300.f, 20.f),
 		sf::Vector2f(790.f, 270.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP2);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP2));
@@ -251,7 +252,7 @@ void ZonaDosEsqueletos::criarPlataformas()
 		1,
 		sf::Vector2f(300.f, 20.f),
 		sf::Vector2f(400.f, 600.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP7);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP7));
@@ -291,7 +292,7 @@ void ZonaDosEsqueletos::criarPlataformas()
 		1,
 		sf::Vector2f(20.f, 130.f),
 		sf::Vector2f(80.f, 750.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP11);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP11));
@@ -331,7 +332,7 @@ void ZonaDosEsqueletos::criarPlataformas()
 		1,
 		sf::Vector2f(600.f, 20.f),
 		sf::Vector2f(760.f, 860.f),
-		false
+		true
 	);
 	pGC->incluirObstaculo(pP15);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP15));
@@ -386,7 +387,7 @@ void ZonaDosEsqueletos::criarPlataformas()
 	pGC->incluirObstaculo(pP20);
 	listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP20));
 
-	if (numeroPlataformas > 0)
+	if (numeroPlataformas > 20)
 	{
 		//P21
 		Entidades::Obstaculos::Plataforma* pP21 = new Entidades::Obstaculos::Plataforma(
@@ -398,14 +399,14 @@ void ZonaDosEsqueletos::criarPlataformas()
 		pGC->incluirObstaculo(pP21);
 		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP21));
 	}
-	if (numeroPlataformas > 1)
+	if (numeroPlataformas > 21)
 	{
 		//P22
 		Entidades::Obstaculos::Plataforma* pP22 = new Entidades::Obstaculos::Plataforma(
 			1,
 			sf::Vector2f(100.f, 20.f),
 			sf::Vector2f(340.f, 490.f),
-			false
+			true
 		);
 		pGC->incluirObstaculo(pP22);
 		listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP22));
@@ -517,7 +518,7 @@ void ZonaDosEsqueletos::criarObstaculos()
 
 void ZonaDosEsqueletos::criarInimigos()
 {
-	//criarAranhas();
+	criarAranhas();
 	criarEsqueletos();
 }
 

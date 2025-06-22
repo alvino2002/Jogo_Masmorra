@@ -15,25 +15,27 @@ Mago::Mago(int id,
 
 	tempoLancamento(),
 	lancamentoPronto(false),
-	chamas(1),
+	chamas(),
 	tempoAcumulado(0.0f),
 	listaDeProjeteis()
 {
 	if (nivelDeMaldade == 1)
 	{
 		olhandoDireita = true;
-		recargaLancamento = 5.0f;
+		recargaLancamento = 4.0f;
+		chamas = 2;
 	}
 	else
 	{
 		olhandoDireita = false;
-		recargaLancamento = 2.0f;
+		recargaLancamento = 1.5f;
+		chamas = 3;
 	}
 	
 	texturaMago = new sf::Texture();
-	texturaMago->loadFromFile("mago_Sprite.png");
+	texturaMago->loadFromFile("texturas e fonte/mago_roxo.png");
 	corpo.setTexture(texturaMago);
-	pGA->pegarAnimacao(texturaMago, sf::Vector2u(1, 2));
+	pGA->pegarAnimacao(texturaMago, sf::Vector2u(1, 1));
 }
 
 Mago::~Mago()
@@ -57,11 +59,11 @@ void Mago::executar()
 
 	if (nivelDeMaldade == 1)
 	{
-		pGA->atualizar(0, true);
+		pGA->atualizar(0, olhandoDireita);
 	}
 	else
 	{
-		pGA->atualizar(0, false); // Mago olhando para esquerda
+		pGA->atualizar(0, olhandoDireita); // Mago olhando para esquerda
 	}
 
 	if (tempoLancamento.getElapsedTime().asSeconds() + tempoAcumulado >= recargaLancamento)

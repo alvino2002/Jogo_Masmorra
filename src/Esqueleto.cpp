@@ -17,12 +17,12 @@ Esqueleto::Esqueleto(
 {
 	if (nivelDeMaldade == 1)
 	{
-		batida = 1;
+		batida = 2;
 	}
 
 	else
 	{
-		batida = 2;
+		batida = 3;
 	}
 	texturaEsqueleto = new sf::Texture();
 	texturaEsqueleto->loadFromFile("texturas e fonte/skull.sprite.png");

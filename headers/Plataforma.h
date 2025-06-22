@@ -13,7 +13,6 @@ namespace Masmorra
 			{
 			private:
 				bool armadilha; // Algumas plataformas têm armadilhas, provocando dano ao Jogador quando pisar nela
-				sf::Texture* texturaPlataforma;
 
 			public:
 				Plataforma(

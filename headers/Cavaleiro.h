@@ -8,6 +8,18 @@ namespace Masmorra
 	{
 		namespace Personagens
 		{
+			class Curandeira;
+		}
+	}
+}
+
+
+namespace Masmorra
+{
+	namespace Entidades
+	{
+		namespace Personagens
+		{
 			class Cavaleiro : public Jogador
 			{
 			private:
@@ -21,6 +33,7 @@ namespace Masmorra
 				bool ataquePronto;
 				static int inimigosEliminados; // Apenas cavaleiro consegue eliminar 
 				sf::Texture* texturaCavaleiro;
+				Curandeira* pCurandeira;
 
 			public:
 				Cavaleiro(
@@ -43,6 +56,8 @@ namespace Masmorra
 				void operator++(); // Incrementar numero de inimigos eliminados
 				static int getInimigosEliminados();
 				static void setInimigosEliminados(int numeroInimigos);
+				void setCurandeira(Curandeira* pCur);
+				void enfurecer();
 				void salvarDataBuffer();
 			};
 		}

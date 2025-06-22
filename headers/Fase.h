@@ -21,8 +21,6 @@ namespace Masmorra
 			int numeroAranhas;
 			bool fimDaFase;
 			int quantidadeJogadores;
-			sf::Texture* imagem_cenario;
-			sf::Sprite* fundo_cenario;
 			sf::RenderWindow* janela;
 
 		public:
@@ -44,7 +42,6 @@ namespace Masmorra
 			void setarCamera();
 			virtual void salvarFase() = 0;
 			virtual void carregarFase() = 0;
-			void desenharFundo();
 		};
 	}
 }

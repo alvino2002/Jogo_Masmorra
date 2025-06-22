@@ -33,6 +33,7 @@ void Curandeira::setCavaleiro(Cavaleiro* pCa)
 	{
 		pCavaleiro = pCa;
 	}
+	pCavaleiro->setCurandeira(this);
 }
 
 void Curandeira::executar()
@@ -114,12 +115,12 @@ void Curandeira::curarAliado()
 {
 	if (pCavaleiro)
 	{
-		/*so consegue curar se estiverm proximos*/
+		/*só consegue curar se estiverm proximos*/
 		if (fabs(pCavaleiro->getCorpo().getPosition().x - corpo.getPosition().x) < 100.0f
 			&& fabs(pCavaleiro->getCorpo().getPosition().y - corpo.getPosition().y) < 100.0f)
 		{
-			vida -= 10; // Fornece sua propria energia vital
-			pCavaleiro->setVida(pCavaleiro->getVida() + 10);
+			vida -= 5; // Fornece sua propria energia vital
+			pCavaleiro->setVida(pCavaleiro->getVida() + 5);
 		}
 	}
 }

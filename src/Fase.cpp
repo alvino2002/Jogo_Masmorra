@@ -20,11 +20,6 @@ Fase::Fase(int id, int qtdeJogadores, bool novoJogo) :
 	listaEntidades.limparLista();
 	pGC->zerarListas();
 
-	imagem_cenario = new sf::Texture();
-	fundo_cenario = new sf::Sprite();
-	imagem_cenario->loadFromFile("fundo_preto.jpg");
-	fundo_cenario->setTexture(*imagem_cenario);
-
 	if (novoJogo)
 	{
 		if (quantidadeJogadores == 1)
@@ -33,7 +28,7 @@ Fase::Fase(int id, int qtdeJogadores, bool novoJogo) :
 				sf::Vector2f(50.f, 70.f),
 				sf::Vector2f(860.f, 430.f),
 				sf::Vector2f(200.f, 0.f),
-				10, 110.0f, 20);
+				70, 110.0f, 20);
 
 			pCur = nullptr;
 
@@ -52,13 +47,13 @@ Fase::Fase(int id, int qtdeJogadores, bool novoJogo) :
 				sf::Vector2f(50.f, 70.f),
 				sf::Vector2f(860.f, 430.f),
 				sf::Vector2f(200.f, 0.f),
-				100, 110.0f, 20);
+				70, 110.0f, 20);
 
 			pCur = new Entidades::Personagens::Curandeira(1,
 				sf::Vector2f(50.f, 70.f),
 				sf::Vector2f(860.f, 430.f),
 				sf::Vector2f(200.f, 0.f),
-				30, 110.0f);
+				50, 110.0f);
 
 			Entidades::Obstaculos::Obstaculo::setCurandeira(pCur); // Obstaculos conhecerem a curandeira
 			Entidades::Personagens::Inimigo::setCurandeira(pCur);
@@ -79,8 +74,6 @@ Fase::Fase(int id, int qtdeJogadores, bool novoJogo) :
 
 Fase::~Fase()
 {
-	delete fundo_cenario;
-	delete imagem_cenario;
 	listaEntidades.limparLista();
 	pGC->zerarListas();
 }
@@ -147,13 +140,4 @@ void Fase::setarCamera()
 			break;
 		}
 	}
-}
-
-void Fase::desenharFundo()
-{
-	//sf::RenderWindow* janela = pGG->getJanela();
-	auto janela = pGG->getJanela();
-	sf::Vector2f TopoEsquerda = camera.getCenter() - camera.getSize() * 0.7f;
-	fundo_cenario->setPosition(TopoEsquerda);
-	janela->draw(*fundo_cenario);
 }

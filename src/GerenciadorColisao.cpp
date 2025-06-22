@@ -51,8 +51,8 @@ bool GerenciadorColisao::verificarColisao(Entidades::Entidade* e1, Entidades::En
 
 	delta_x = fabs((e1_Posicao.x + e1_MetadeTam.x) - (e2_Posicao.x + e2_MetadeTam.x));
 	delta_y = fabs((e1_Posicao.y + e1_MetadeTam.y) - (e2_Posicao.y + e2_MetadeTam.y));
-	interseccao_x = (delta_x)-(e2_MetadeTam.x + e1_MetadeTam.x);
-	interseccao_y = (delta_y)-(e2_MetadeTam.y + e1_MetadeTam.y);
+	interseccao_x = (delta_x) - (e2_MetadeTam.x + e1_MetadeTam.x);
+	interseccao_y = (delta_y) - (e2_MetadeTam.y + e1_MetadeTam.y);
 
 	if (interseccao_x < 0.0f && interseccao_y < 0.0f) // Houve colisao
 	{

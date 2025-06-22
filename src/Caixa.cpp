@@ -41,7 +41,6 @@ void Caixa::obstacularizar(Entidade* pE)
 	bool ehCavaleiro = dynamic_cast<Personagens::Cavaleiro*>(pE) != nullptr;
 	bool ehPlat = dynamic_cast<Plataforma*>(pE) != nullptr;
 
-
 	if (pGC->getInterseccaoX() > pGC->getInterseccaoY())
 	{
 		if (ehCavaleiro) // Apenas o cavaleiro consegue empurrar a caixa
