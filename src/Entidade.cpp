@@ -96,5 +96,5 @@ float Entidade::getPosicaoY()const
 
 std::string Entidade::getBuffer()
 {
-	return buffer.str();
+	return buffer.str(); // retorna o conteudo
 }

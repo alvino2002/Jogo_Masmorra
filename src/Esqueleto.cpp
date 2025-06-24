@@ -66,7 +66,6 @@ void Esqueleto::bater(Jogador* pJ) const
 	{
 		pJ->sofrerDano(batida);
 
-
 		pJ->invulnerabilizar();
 	}
 }

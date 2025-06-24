@@ -4,6 +4,9 @@
 
 /* Esta classe, em conjunto com a classe Estado, definem o estado atual do jogo */
 
+/* Referencia utilizada: Ex-Monitor de Tecnicas De Programacao Matheus Burda */
+/* Canal: https://www.youtube.com/channel/UCrNDrGwDXmBErjp0BGqqOUw/featured */
+
 namespace Masmorra
 {
 	namespace Gerenciadores

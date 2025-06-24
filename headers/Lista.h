@@ -3,6 +3,7 @@
 /* Referencia utilizada: Ex-Monitor de Tecnicas De Programacao Matheus Burda */
 /* Canal: https://www.youtube.com/channel/UCrNDrGwDXmBErjp0BGqqOUw/featured */
 
+/*Lista Simplesmente Encadeada*/
 
 namespace Masmorra
 {
@@ -171,7 +172,6 @@ namespace Masmorra
 			pUlt = nullptr;
 			tam = 0;
 		}
-
 
 
 		template <class TipoLista>

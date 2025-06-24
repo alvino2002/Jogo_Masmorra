@@ -711,6 +711,17 @@ void RecintoDosMagos::salvarFase()
 				arquivo << pE->getBuffer();
 			}
 		}
+
+		for (int i = 0; i < pGC->getListaProjeteis().getTam() - 1;  i++)
+		{
+			Entidades::Entidade* pF = pGC->getListaProjeteis().getEntidade(i);
+
+			if (pF->getAtivo() == true)
+			{
+				arquivo << pF->getBuffer();
+			}
+		}
+
 		arquivo.close();
 	}
 	catch (...)
@@ -860,6 +871,21 @@ void RecintoDosMagos::carregarFase()
 
 				pGC->incluirObstaculo(pP);
 				listaEntidades.incluirEntidade(static_cast<Entidades::Entidade*>(pP));
+			}
+
+			else if (tipo == "Fogo")
+			{
+				sf::Vector2f posicao;
+				sf::Vector2f velocidade;
+				bool sentido;
+
+				linhaAtual >> posicao.x >> posicao.y >>velocidade.x >> velocidade.y >> sentido; // Pegando as info
+
+
+				Entidades::Fogo* pF = new Entidades::Fogo(1, sf::Vector2f(30.0f, 30.0f),
+					posicao, velocidade, sentido);
+
+				pGC->incluirProjetil(pF);
 			}
 		}
 	}

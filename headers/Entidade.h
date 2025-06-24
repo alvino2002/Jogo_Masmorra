@@ -20,7 +20,7 @@ namespace Masmorra
 			sf::Vector2f velocidade;
 			bool naSuperficie;
 			bool ativo;
-			std::ostringstream buffer;
+			std::ostringstream buffer; // gravar dados
 
 		public:
 			/*Valor default para velocidade ja que nem todos as entidades terao velocidade*/

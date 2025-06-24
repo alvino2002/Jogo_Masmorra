@@ -16,8 +16,8 @@ Mago::Mago(int id,
 	tempoLancamento(),
 	lancamentoPronto(false),
 	chamas(),
-	tempoAcumulado(0.0f),
-	listaDeProjeteis()
+	tempoAcumulado(0.0f)
+	//listaDeProjeteis()
 {
 	if (nivelDeMaldade == 1)
 	{
@@ -40,7 +40,7 @@ Mago::Mago(int id,
 
 Mago::~Mago()
 {
-	listaDeProjeteis.limparLista();
+	//listaDeProjeteis.limparLista();
 	delete texturaMago;
 	texturaMago = nullptr;
 }
@@ -98,7 +98,6 @@ void Mago::criarFogo()
 		Fogo* fogo = new Fogo(1, sf::Vector2f(30.0f, 30.0f), corpo.getPosition(),
 			sf::Vector2f(100.0f, 0.0f), true);
 		pGC->incluirProjetil(fogo);
-		fogo->executar();
 	}
 
 	else
@@ -106,7 +105,6 @@ void Mago::criarFogo()
 		Fogo* fogo = new Fogo(1, sf::Vector2f(30.0f, 30.0f), corpo.getPosition(),
 			sf::Vector2f(-100.0f, 0.0f), false);
 		pGC->incluirProjetil(fogo);
-		fogo->executar();
 	}
 }
 

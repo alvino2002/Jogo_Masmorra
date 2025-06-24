@@ -15,7 +15,7 @@ namespace Masmorra
 			class Mago : public Inimigo
 			{
 			private:
-				Listas::ListaEntidades listaDeProjeteis;
+				//Listas::ListaEntidades listaDeProjeteis;
 				sf::Clock tempoLancamento;  // Temporizador para lancar o projetil
 				float recargaLancamento;  // Tempo de espera entre recargas
 				bool lancamentoPronto;
